@@ -1,0 +1,74 @@
+// ------------ GENERAL MIXINS SETTINGS ------------
+// ----TEXT----
+// @mixin textStyleH1 {
+//   font-size: 4rem;
+//   font-weight: 700;
+//   @media(max-width: 768px){
+//     font-size: 3.5rem;
+//     font-weight: 600;
+//   }
+// }
+// @mixin textStyleH2 {
+//   font-size: 3rem;
+//   font-weight: 700;
+//   @media(max-width: 768px){
+//     font-size: 2.75rem;
+//     font-weight: 600;
+//   }
+// }
+// @mixin textStyleH4 {
+//   font-size: 2rem;
+//   font-weight: 700;
+//   @media(max-width: 768px){
+//     font-size: 1.65rem;
+//   }
+//   @media(max-width: 768px){
+//     font-size: 2.75rem;
+//     font-weight: 600;
+//   }
+// }
+
+// new text style
+@mixin textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+@mixin textStyleTitleXl {
+  font-size: 4rem;
+  font-weight: 700;
+  @media(max-width: 768px){
+    font-size: 2.5rem;
+  }
+}
+@mixin textStyleTitle {
+  font-size: 3rem;
+  font-weight: 600;
+  @media(max-width: 768px){
+    font-size: 2rem;
+  }
+}
+@mixin textStyleSubTitle {
+  font-weight: 500;
+  font-size: 2rem;
+  @media(max-width: 768px){
+    font-size: 1.75rem;
+  }
+}
+@mixin textStyleMedium {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+@mixin textStyleBodyXl {
+  font-weight: 400;
+  font-size: 1.25rem;
+}
+@mixin textStyleBody {
+  font-weight: 400;
+  font-size: 1rem;
+}
+@mixin textStyleCaption {
+  font-weight: 400;
+  font-size: .75rem;
+}

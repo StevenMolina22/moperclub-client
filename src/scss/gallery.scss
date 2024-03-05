@@ -1,0 +1,193 @@
+@import "./modules/all";
+
+//
+// ----card-slider settings
+
+// texto general
+.text__container {
+  margin-bottom: 1.75rem;
+  padding-top: 1.75rem;
+}
+
+// titulo
+.text__h2 {
+  font-size: 4rem;
+  text-align: center;
+  color: #dedede;
+  font-weight: 600;
+}
+
+// cuerpo general
+.cards-slider__container {
+  display: flex;
+  height: 650px;
+  place-items: center;
+  background: var(--dark-gray);
+  font-family: "Ubuntu Mono", monospace;
+  font-weight: 400;
+}
+
+// cartas general
+.cards-slider__items {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 90%;
+  gap: 0.5rem;
+}
+
+// div externo (contiene a cards__item)
+.card-slider__item-div {
+  // 0 1 20 or 0 0 20? n n width~
+  flex: 0 1 20%;
+  border-radius: 0.5rem;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  box-shadow: 1px 5px 15px #4d0525;
+  position: relative;
+  overflow: hidden;
+
+  // ajustes individuales para cada (cards__item) imagenes
+  &:nth-of-type(1) {
+    background: url("https://plus.unsplash.com/premium_photo-1679470210717-97fc30968fdf?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+      no-repeat 50% / cover;
+  }
+  &:nth-of-type(2) {
+    background: url("https://images.unsplash.com/photo-1563693267403-111c5d856e49?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+      no-repeat 50% / cover;
+  }
+  &:nth-of-type(3) {
+    background: url("https://images.unsplash.com/photo-1530445098981-862544854865?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+      no-repeat 50% / cover;
+  }
+  &:nth-of-type(4) {
+    background: url("https://images.unsplash.com/photo-1523906921802-b5d2d899e93b?q=80&w=1906&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+      no-repeat 50% / cover;
+  }
+
+  // pseudo ajustes div externo (>a item de cartas)
+  &:hover {
+    flex: 0 0 25%; // (width de los items en relacion al padre)
+    box-shadow: 1px 3px 15px #ef107444;
+    transform: translatey(-30px);
+  }
+  // ajuntes al item de la carta cuando hay un hover en el padre
+  &:hover .cards-slider__item {
+    opacity: 1;
+    transform: translatey(0%);
+    visibility: visible;
+  }
+}
+
+// ajustes de elementos de cartas (contenido)
+.cards-slider__item {
+  font-size: 1.5rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  opacity: 0;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  background: rgb(2, 2, 46);
+  background: linear-gradient(
+    0deg,
+    rgba(46, 2, 14, 0.676) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translatey(100%);
+  transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+  visibility: hidden;
+  // ajustes texto parrafos
+  & span {
+    display: block;
+    margin-top: 5px;
+    font-size: 1.2rem;
+  }
+}
+
+// ------------RESPONSIVE-----------
+// mobiles y tablets
+@media (max-width: 992px) {
+  // cuerpo general
+  div.cards-slider__container {
+    min-height: 100vh;
+  }
+  // texto general
+  .text__container {
+    margin-bottom: 1.5rem;
+    padding-top: 2.5rem;
+  }
+  // titulo
+  .text__h2 {
+    font-size: 3rem;
+    text-align: center;
+    color: #dedede;
+    font-weight: 600;
+  }
+  // cartas general
+  .cards-slider__items {
+    position: absolute;
+    height: 40%;
+  }
+  .card-slider__item-div {
+    flex: 0 0 40%; // (width de los items en relacion al padre)
+    &:hover {
+      flex: 0 0 50%;
+    }
+  }
+  // ajustes de elementos de cartas
+  .cards__item {
+    font-size: 1rem;
+    padding: 1px;
+    // ajustes texto parrafos
+    & span {
+      margin-top: 1px;
+      font-size: 0.65rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  // cuerpo general
+  div.cards-slider__container {
+    min-height: 100vh;
+  }
+  // texto general
+  .text__container {
+    margin-bottom: 1rem;
+    padding-top: 2rem;
+  }
+  // titulo
+  .text__h2 {
+    font-size: 3rem;
+    text-align: center;
+    color: #dedede;
+    font-weight: 600;
+  }
+  // cartas general
+  .cards-slider__items {
+    position: absolute;
+    height: 40%;
+    .card-slider__item-div {
+      flex: 0 0 45%; // (width de los items en relacion al padre)
+      &:hover {
+        flex: 0 0 50%;
+      }
+    }
+  }
+  // ajustes de elementos de cartas
+  .cards-slider__item {
+    font-size: 2rem;
+    padding: 1px;
+    // ajustes texto parrafos
+    & p {
+      margin-top: 1px;
+      font-size: 1rem;
+    }
+    .cards-slider__text--inner {
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.interactive-card {
+  box-shadow: 1px 5px 15px #4d0525;
+  transition: 0.25s ease-in-out;
+  &:hover {
+    transform: translatey(-30px);
+    transform: scale(1.025);
+  }
+}

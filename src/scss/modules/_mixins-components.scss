@@ -1,0 +1,99 @@
+// ---------MIXINS COMPONENTS SETTINGS-----------
+
+// ----BANNER Settings
+
+
+// ----NAVBAR Settings
+
+
+// ----CARD Settings
+@mixin cardCLayout{
+  // display settings
+  display: flex;
+  flex-direction: column;
+  // sizing spacing
+  padding: 1rem;
+}
+// responsive wrap container for 4 items
+@mixin cardsCContainer(){ 
+  @include containerC; // layout container settings
+  padding: 1rem;
+  background-color: rgba(#000, .05);
+  gap: 1rem;
+  @media (max-width: $screen-m) {
+    flex-wrap: wrap;
+  }
+}
+@mixin cardsCContainerFluid(){ 
+  @include containerCFluid; // layout container settings
+  padding: 1rem;
+  background-color: rgba(#000, .05);
+  gap: 1rem;
+  @media (max-width: $screen-m) {
+    flex-wrap: wrap;
+  }
+}
+// responsive item for wrap container
+@mixin cardCItem(){
+  @include cardCLayout;
+  width: 25%; // to divide the container for 4 elements
+  @media (max-width: $screen-m) {
+    width: 48%; // 48% cause the gap is not calculated in the layout
+  }
+  @media (max-width: $screen-s){
+    width: 100%;
+  }
+}
+
+
+
+// ----BUTTONS Settings
+@mixin buttonSizing {
+  padding: .5em 2em;
+  margin: .5em;
+  border-radius: .75em;
+  @media(max-width:768px) {
+    padding: .2em 1.5em;
+    margin: .2em;
+    border-radius: .5em;
+  }
+  @media(max-width: $screen-xs) {
+    padding: .15em 1em;
+    margin: .15em;
+    border-radius: .5em;
+  }
+}
+
+
+// ----ICONS Settings
+@mixin iconsC1{
+  &__container {
+    display: flex;
+    padding: 1rem;
+    gap: 2rem;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: center;
+  }
+  &__i {
+      font-size: 40px;
+      color: var(--secondary-color);
+      border-radius: 50%;
+  }
+  &__i:hover {
+      color: #e71d73;
+      background-color: var(--primary-color);
+      box-shadow: 0 0 20px var(--secondary-color);
+      cursor: pointer;
+  }
+  @media(max-width:991px) {
+      // seccion extra-icons
+      &__container {
+        gap: 1.75rem;
+      }
+  }
+}
+
+
+// ----FORMS Settings
+

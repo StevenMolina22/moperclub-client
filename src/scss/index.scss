@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "roundedelegance";
+  src: url("assets/fonts/RoundedElegance.ttf");
+}
+
+body {
+  background-color: #f9f9f9;
+  /* font-family: "roundedelegance", sans-serif; */
+}

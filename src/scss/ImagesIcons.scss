@@ -1,0 +1,61 @@
+@import "./modules/all";
+
+// -------------- RECORRER ESPACIO ---------------
+// ----------------- article-videos VIDEOS------------------
+.extra-videos {
+  text-align: center;
+  &__video {
+    width: 240px;
+    height: 220px;
+  }
+
+  // @media(min-width: 640px){
+  //     &__article{
+  //         width: 50%;
+  //     }
+  // }
+  // @media(min-width: 820px){
+  //     &__article{
+  //         width: 50%;
+  //     }
+  // }
+  // @media(min-width: 980px){
+  //     &__article{
+  //         width: auto;
+  //     }
+  // }
+}
+
+// ---------------- EXTRA-ICONS-------------------
+.extra-icons {
+  @include iconsC1;
+}
+
+// ---------------extra-conoce----------------
+// seccion
+.extra-conoce {
+  background-image: linear-gradient(to bottom right, var(--red), var(--orange));
+  background-color: var(--orange);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 2rem;
+  // ajuste imagenes
+  &__img {
+    margin: 20px;
+    width: 180px;
+    height: 180px;
+    border-radius: 40%;
+    border: 5px solid white;
+  }
+  @media (min-width: 700px) {
+    &__item {
+      width: 50%;
+    }
+  }
+  @media (min-width: 960px) {
+    &__item {
+      width: auto;
+    }
+  }
+}

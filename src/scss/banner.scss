@@ -1,0 +1,105 @@
+@import "./modules/all";
+
+// -------BANNERS SETTINGS
+.home-page {
+  height: 100vh;
+  // container home
+  & .banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+  }
+  // opacity image
+  & .banner__img-overlay {
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+  }
+  // title text
+  & .banner__text {
+    box-sizing: border-box;
+    position: absolute;
+    color: white;
+    padding: 10px;
+    & .banner__h2 {
+      font-size: 8rem;
+      font-weight: 600;
+    }
+    & .banner__h4 {
+      font-size: 3rem;
+    }
+  }
+  // decoration border
+  & .banner__border {
+    width: 446px;
+    height: 528px;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 0.5rem solid #e71d73;
+  }
+}
+
+// --------------RESPONSIVE--------------
+
+@media (max-width: 960px) {
+  // general
+  .banner {
+    // title text
+    & .banner__text {
+      padding: 5px;
+      & .banner__h2 {
+        font-size: 6rem;
+      }
+      & .banner__h4 {
+        font-size: 2.25rem;
+      }
+    }
+    // rectangular decoration border
+    & .banner__border {
+      width: 328px;
+      height: 428px;
+      position: absolute;
+      box-sizing: border-box;
+      padding: 10px;
+      border: 0.35rem solid #e71d73;
+    }
+  }
+}
+@media (max-width: 768px) {
+  // home page
+  .banner {
+    // title text
+    & .banner__text {
+      padding: 5px;
+      & .banner__h2 {
+        font-size: 4rem;
+      }
+      & .banner__h4 {
+        font-size: 1.75rem;
+      }
+    }
+    // rectangular decoration border
+    & .banner__border {
+      width: 320px;
+      height: 400px;
+      position: absolute;
+      box-sizing: border-box;
+      padding: 10px;
+      border: 0.35rem solid #e71d73;
+    }
+  }
+}

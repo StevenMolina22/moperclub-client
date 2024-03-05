@@ -1,0 +1,85 @@
+// -------- LAYOUT MIXINS SETTINGS ---------
+
+// ---FLEX settings---
+@mixin flexGenerator($direction: row, $wrap: nowrap, $justify: center, $align: center){
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: nowrap;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin justifyAlign($justify: center, $align: center){
+ display: flex;
+ justify-content: $justify;
+ align-items: $align;
+}
+@mixin flexWrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+@mixin flexEnd {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+// ---DISPLAY---
+@mixin sizeWholePage {
+  width: 100vw;
+  height: 100vh;
+}
+@mixin adaptToContent {
+  display: flex;
+  width: 100vw;
+}
+
+// CONTAINERS features
+@mixin containerC {
+  display: flex;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  @media(max-width: 1440px){
+    width: 80%;
+  }
+  @media(max-width: 1008px){
+    width: 85%;
+  }
+  @media(max-width: 768px){
+    width: 90%;
+  }
+}
+@mixin containerCFluid {
+  display: flex;
+  width: 100%;
+}
+@mixin containerGenerator(){
+
+}
+
+// special layout containers settings
+@mixin flexCollage {
+  @include flexCenter();
+  flex-wrap: wrap;
+  padding: 2rem 0;
+  gap: 1rem;
+  & > div, img {
+      width: 20%;
+  } 
+  @media (max-width: 1096px){
+    & > div, img {
+      width: 40%;
+  }
+  }
+  @media (max-width: 640px){
+    & > div, img {
+      width: 80%;
+  }
+  }
+}
+
