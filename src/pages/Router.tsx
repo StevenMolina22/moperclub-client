@@ -12,11 +12,11 @@ function Router() {
     <BrowserRouter>
       <Routes>
         {/* route setting */}
+        <Route path="/" element={<App />} />
         <Route path="/store" element={<Store />} />
         <Route path="/about" element={<About />} />
         <Route path="/recommended" element={<Recommended />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/" element={<App />} />
       </Routes>
     </BrowserRouter>
   );
