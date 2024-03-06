@@ -1,8 +1,3 @@
-import {
-  CloudArrowUpIcon,
-  LockClosedIcon,
-  ServerIcon,
-} from "@heroicons/react/24/solid";
 import React from "react";
 
 // message items type definition
