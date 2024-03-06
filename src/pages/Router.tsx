@@ -1,8 +1,8 @@
 // "components" for routs handling
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // pages to set the routes to
-import Store from "./Store/Store.tsx";
-import About from "../About";
+import Store from "./Store/Store";
+import About from "./About/About";
 import Recommended from "./Recommended/Recommended";
 import Blog from "./Blog/Blog";
 import App from "../App";
@@ -12,7 +12,7 @@ function Router() {
     <BrowserRouter>
       <Routes>
         {/* route setting */}
-        <Route path="/" element={<App />} />
+        <Route index element={<App />} />
         <Route path="/store" element={<Store />} />
         <Route path="/about" element={<About />} />
         <Route path="/recommended" element={<Recommended />} />
