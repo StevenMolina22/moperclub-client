@@ -1,8 +1,8 @@
 // "components" for routs handling
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // pages to set the routes to
-import Store from "./Store/Store";
-import About from "./About/About";
+import Store from "./Store/Store.tsx";
+import About from "../About";
 import Recommended from "./Recommended/Recommended";
 import Blog from "./Blog/Blog";
 import App from "../App";
