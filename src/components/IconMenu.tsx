@@ -1,8 +1,12 @@
 import "../scss/IconMenu.scss";
 // media
-import { ArrowUpOnSquareStackIcon } from "@heroicons/react/24/solid";
+import {
+  ArrowUpOnSquareStackIcon,
+  EllipsisVerticalIcon,
+  CursorArrowRaysIcon,
+} from "@heroicons/react/24/solid";
 
-// icon card type definition 
+// icon card type definition
 interface IconCard {
   title: string;
   body: string;
@@ -15,7 +19,7 @@ interface Props {
   subtitle: string;
   cards: IconCard[];
 }
-export default function IconMenu( {title, subtitle, cards}: Props) {
+export default function IconMenu({ title, subtitle, cards }: Props) {
   return (
     <div>
       {/* icon links */}
@@ -67,7 +71,7 @@ export default function IconMenu( {title, subtitle, cards}: Props) {
             target="_blank"
           >
             <span className="info-icon">
-              <ArrowUpOnSquareStackIcon className="h-6 w-6" />
+              <CursorArrowRaysIcon className="h-6 w-6" />
             </span>
           </a>
           {/* lower link */}
@@ -82,26 +86,24 @@ export default function IconMenu( {title, subtitle, cards}: Props) {
           </a>
           {/* main lower link (show/hide) */}
           <a className="bg_links company-menu__logo">
-            <i className="bi bi-three-dots"></i>
+            <EllipsisVerticalIcon className="h-6 w-6 text-white" />
           </a>
         </div>
         {/* end company-menu */}
 
         {/* icon cards wrapper */}
-        
+
         <div className="personal-menu__content ">
           {/* personal-menu__card */}
-          {cards.map((card) => (
-          <div className="personal-menu__card">
-            <div className="info-icon">
-              <i className="material-icons md-36">{card.icon}</i>
+          {cards.map((card, index) => (
+            <div className="personal-menu__card" key={index}>
+              <div className="info-icon">
+                <i className="material-icons md-36">{card.icon}</i>
+              </div>
+              <p className="personal-menu__title">{card.title}</p>
+              <p className="personal-menu__text">{card.body}</p>
             </div>
-            <p className="personal-menu__title">{card.title}</p>
-            <p className="personal-menu__text">
-              {card.body}
-            </p>
-          </div>
-        ))}
+          ))}
           {/* end personal-menu__card */}
         </div>
       </section>

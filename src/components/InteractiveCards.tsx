@@ -7,10 +7,10 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper/modules";
 
-// interactive card item type declaration 
+// interactive card item type declaration
 interface cardContent {
-  title: string;
-  body: string;
+  name: string;
+  description: string;
   image: string;
 }
 
@@ -19,7 +19,7 @@ interface Props {
   cardsContent: cardContent[];
 }
 
-export default function InteractiveCards( {cardsContent}: Props) {
+export default function InteractiveCards({ cardsContent }: Props) {
   // images declaration
   // window width state declaration
   let [winWidth, setWinWidth] = useState(window.innerWidth);
@@ -46,10 +46,11 @@ export default function InteractiveCards( {cardsContent}: Props) {
       {/* shows gallery if large device, carousel if small device */}
       {winWidth >= 768 ? (
         <div className="flex flex-wrap justify-center gap-2 p-8">
-          {cardsContent.map((cardContent) => (
+          {cardsContent.map((cardContent, index) => (
             <InteractiveCard
-              title={cardContent.title}
-              body={cardContent.body}
+              key={index}
+              title={cardContent.name}
+              body={cardContent.description}
               image={cardContent.image}
             />
           ))}
@@ -71,8 +72,8 @@ export default function InteractiveCards( {cardsContent}: Props) {
             <SwiperSlide key={index} className="w-fit rounded-xl bg-slate-300 ">
               {/* card itself */}
               <InteractiveCard
-                title={cardContent.title}
-                body={cardContent.body}
+                title={cardContent.name}
+                body={cardContent.description}
                 image={cardContent.image}
               />
             </SwiperSlide>

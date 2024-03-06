@@ -1,7 +1,32 @@
+import { getAllItems } from "../../api/featured.api";
 import InteractiveCards from "../../components/InteractiveCards";
+import { useState, useEffect } from "react";
+
+
+// api date type defintion 
+type ItemType = {
+  id: number;
+  name: string;
+  description: string;
+  address: string;
+  image: string;
+};
 
 export default function Events() {
-  const interactiveCardsContent = [
+  // items of api data states definition
+  const [items, setItems] = useState<ItemType[]>([]); // [] to make empty array, not null using tsx
+
+  // gets data from from the API (useEffect runs as soon as page starts)
+  useEffect(() => {
+    // async function for it to run in the background
+    async function loadItems() {
+      const res = await getAllItems();
+      setItems(res.data); // to save the response data
+      console.log(res); // for dev purpose
+    }
+    loadItems();
+  }, []);
+  let interactiveCardsContent = [
     {
       image:
         "https://plus.unsplash.com/premium_photo-1679470210717-97fc30968fdf?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -27,7 +52,8 @@ export default function Events() {
       body: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim distinctio odit earum, culpa accusantium voluptas dicta perspiciatis consectetur esse neque.",
     },
   ];
+  const displayedItems = items.slice(0,4)
   return (
-    <InteractiveCards cardsContent={interactiveCardsContent} />
+    <InteractiveCards cardsContent={displayedItems} />
   )
 }

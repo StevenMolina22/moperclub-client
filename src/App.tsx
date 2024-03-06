@@ -1,5 +1,5 @@
 // "components" for routs handling
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 // pages to set the routes to
 import Store from "./pages/Store/Store";
 import About from "./pages/About/About";
@@ -9,16 +9,16 @@ import Home from "./pages/Home/Home";
 
 function App() {
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
       <Routes>
         {/* route setting */}
         <Route index element={<Home />} />
         <Route path="/store" element={<Store />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/about/" element={<About />} />
         <Route path="/recommended" element={<Recommended />} />
         <Route path="/blog" element={<Blog />} />
       </Routes>
-    </BrowserRouter>
+    // </BrowserRouter>
   );
 }
 

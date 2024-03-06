@@ -1,6 +1,7 @@
-import Slider from "../../components/Slider"
-import { getAllItems } from "../../api/featured.api"
-import { useState, useEffect } from "react"
+import Slider from "../../components/Slider";
+import { getAllItems } from "../../api/featured.api";
+import { getAllItemsAlt } from "../../api/featuredAlt.api";
+import { useState, useEffect } from "react";
 
 // --Type definition for the api data (to be used in the item state definition)
 type ItemType = {
@@ -13,21 +14,17 @@ type ItemType = {
 
 export default function Featured() {
   // --- api section
-  // items of api data states definition
-  const [items, setItems] = useState<ItemType[]>([]); // [] to make empty array, not null using tsx
+  const [itemsAlt, setItemsAlt] = useState<ItemType[]>([]);
 
-  // gets data from from the API (useEffect runs as soon as page starts)
   useEffect(() => {
-    // async function for it to run in the background
-    async function loadItems() {
-      const res = await getAllItems();
-      setItems(res.data); // to save the response data
-      console.log(res); // for dev purpose
+    async function loadItemsAlt() {
+      const res = await getAllItemsAlt();
+      setItemsAlt(res.data.featured_instances);
+      console.log(res);
     }
-    loadItems();
+    loadItemsAlt();
   }, []);
-  // returned featured slider 
-  return (
-    <Slider items={items}/>
-  )
+
+  // returned featured slider
+  return <Slider items={itemsAlt} />;
 }

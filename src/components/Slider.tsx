@@ -73,8 +73,8 @@ const MyComponent = ( {items}: Props) => {
         onSwiper={(swiper) => console.log(swiper)}
       >
         {/* slides: items of the slider */}
-        {items.map((item) => (
-          <SwiperSlide key={item.id}>
+        {items.map((item, index) => (
+          <SwiperSlide key={index}>
             <div
               style={{ backgroundImage: `url(${item.image})` }}
               className="h-[380px] rounded-2xl bg-cover bg-center object-fill p-2 lg:h-[670px]"
@@ -82,7 +82,7 @@ const MyComponent = ( {items}: Props) => {
               {" "}
               {/* dropdown info menu */}
               <MoreButton
-                id={item.id}
+                id={index}
                 title={item.name}
                 description={item.description}
                 address={item.address}
