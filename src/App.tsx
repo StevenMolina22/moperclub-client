@@ -1,25 +1,25 @@
-// App.tsx
+// Sections of the app page 
 import "./scss/app.scss";
-import Banner from "./components/Banner";
-import Slider from "./components/Slider";
-// import Gallery from "./components/Gallery";
-import IconMenu from "./components/IconMenu";
+import Home from "./pages/App/Home";
+import Featured from "./pages/App/Featured";
+import Events from "./pages/App/Events";
+import PersonalMenu from "./pages/App/PersonalMenu";
+import Articles from "./pages/App/Articles";
 import Footer from "./components/Footer";
-import ImagesIcons from "./components/ImagesIcons";
-import FeaturedSection from "./components/FeaturedSection";
-import InteractiveCards from "./components/InteractiveCards";
+import Inspiration from "./pages/App/Inspiration";
 // import PopUpForm from "./components/Atoms/SigninForm";
 
+// main app
 function App() {
   return (
     <div>
       {/* <PopUpForm /> */}
-      <Banner />
-      <Slider />
-      <InteractiveCards />
-      <FeaturedSection />
-      <IconMenu />
-      <ImagesIcons />
+      <Home />
+      <Featured />
+      <Events />
+      <Inspiration />
+      <PersonalMenu />
+      <Articles />
       <Footer />
     </div>
   );

@@ -7,28 +7,30 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper/modules";
 
-export default function InteractiveCards() {
+// interactive card item type declaration 
+interface cardContent {
+  title: string;
+  body: string;
+  image: string;
+}
+
+// interactive cards props type declaration
+interface Props {
+  cardsContent: cardContent[];
+}
+
+export default function InteractiveCards( {cardsContent}: Props) {
   // images declaration
-  let images = [
-    "https://plus.unsplash.com/premium_photo-1679470210717-97fc30968fdf?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-
-    "https://images.unsplash.com/photo-1563693267403-111c5d856e49?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-
-    "https://images.unsplash.com/photo-1530445098981-862544854865?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-
-    "https://images.unsplash.com/photo-1523906921802-b5d2d899e93b?q=80&w=1906&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  ];
-
-  // window width state declaration 
+  // window width state declaration
   let [winWidth, setWinWidth] = useState(window.innerWidth);
 
-  // handles responsiveness 
+  // handles responsiveness
   useEffect(() => {
     // update winwidth state
     const handleResize = () => {
       setWinWidth(window.innerWidth);
     };
-    // resize window 
+    // resize window
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -44,8 +46,12 @@ export default function InteractiveCards() {
       {/* shows gallery if large device, carousel if small device */}
       {winWidth >= 768 ? (
         <div className="flex flex-wrap justify-center gap-2 p-8">
-          {images.map((image) => (
-            <InteractiveCard bgImage={image} />
+          {cardsContent.map((cardContent) => (
+            <InteractiveCard
+              title={cardContent.title}
+              body={cardContent.body}
+              image={cardContent.image}
+            />
           ))}
         </div>
       ) : (
@@ -58,13 +64,17 @@ export default function InteractiveCards() {
           }}
           centeredSlides={true}
           modules={[Pagination]}
-          className="mySwiper mt-5 bg-slate-900"
+          className="mySwiper mt-5 bg-slate-900 p-3"
         >
           {/* slide items */}
-          {images.map((image) => (
-            <SwiperSlide className="w-fit rounded-xl bg-slate-300">
+          {cardsContent.map((cardContent, index) => (
+            <SwiperSlide key={index} className="w-fit rounded-xl bg-slate-300 ">
               {/* card itself */}
-              <InteractiveCard bgImage={image} />
+              <InteractiveCard
+                title={cardContent.title}
+                body={cardContent.body}
+                image={cardContent.image}
+              />
             </SwiperSlide>
           ))}
         </Swiper>

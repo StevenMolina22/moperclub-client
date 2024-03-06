@@ -1,4 +1,3 @@
-import { getAllItems } from "../api/events.api"; // api function
 import { useState, useEffect } from "react"; // react functions
 // components
 import MoreButton from "./Atoms/InfoDropdown"; // dropdown button more info
@@ -16,22 +15,12 @@ type ItemType = {
   image: string;
 };
 
+interface Props {
+  items: ItemType[];
+}
+
 // --- main component
-const MyComponent = () => {
-  // items of api data states definition
-  const [items, setItems] = useState<ItemType[]>([]); // [] to make empty array, not null using tsx
-
-  // gets data from from the API (useEffect runs as soon as page starts)
-  useEffect(() => {
-    // async function for it to run in the background
-    async function loadItems() {
-      const res = await getAllItems();
-      setItems(res.data); // to save the response data
-      console.log(res); // for dev purpose
-    }
-    loadItems();
-  }, []);
-
+const MyComponent = ( {items}: Props) => {
   // window width state definitions
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -85,7 +74,7 @@ const MyComponent = () => {
       >
         {/* slides: items of the slider */}
         {items.map((item) => (
-          <SwiperSlide>
+          <SwiperSlide key={item.id}>
             <div
               style={{ backgroundImage: `url(${item.image})` }}
               className="h-[380px] rounded-2xl bg-cover bg-center object-fill p-2 lg:h-[670px]"

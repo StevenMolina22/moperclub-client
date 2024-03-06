@@ -1,9 +1,9 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import EventCard from "../components/Atoms/EventCard";
-import { getAllItems } from "../api/events.api";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import EventCard from "../../components/Atoms/EventCard";
+import { getAllItems } from "../../api/featured.api";
 import { useState, useEffect } from "react";
-import SideBar from "../components/SideBar";
+import SideBar from "../../components/SideBar";
 
 export default function Recommended() {
   // item is a data array, setItems is a func to set the data
