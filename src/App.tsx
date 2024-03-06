@@ -1,27 +1,24 @@
-// Sections of the app page 
-import "./scss/app.scss";
-import Home from "./pages/App/Home";
-import Featured from "./pages/App/Featured";
-import Events from "./pages/App/Events";
-import PersonalMenu from "./pages/App/PersonalMenu";
-import Articles from "./pages/App/Articles";
-import Footer from "./components/Footer";
-import Inspiration from "./pages/App/Inspiration";
-// import PopUpForm from "./components/Atoms/SigninForm";
+// "components" for routs handling
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// pages to set the routes to
+import Store from "./pages/Store/Store";
+import About from "./pages/About/About";
+import Recommended from "./pages/Recommended/Recommended";
+import Blog from "./pages/Blog/Blog";
+import Home from "./pages/Home/Home";
 
-// main app
 function App() {
   return (
-    <div>
-      {/* <PopUpForm /> */}
-      <Home />
-      <Featured />
-      <Events />
-      <Inspiration />
-      <PersonalMenu />
-      <Articles />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* route setting */}
+        <Route index element={<Home />} />
+        <Route path="/store" element={<Store />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/recommended" element={<Recommended />} />
+        <Route path="/blog" element={<Blog />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
