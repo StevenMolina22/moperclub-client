@@ -1,5 +1,4 @@
 import Slider from "../../components/Slider";
-import { getAllItems } from "../../api/featured.api";
 import { getAllItemsAlt } from "../../api/featuredAlt.api";
 import { useState, useEffect } from "react";
 

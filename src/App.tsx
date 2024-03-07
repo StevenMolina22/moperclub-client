@@ -12,9 +12,9 @@ function App() {
     // <BrowserRouter>
       <Routes>
         {/* route setting */}
-        <Route index element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/store" element={<Store />} />
-        <Route path="/about/" element={<About />} />
+        <Route path="/about" element={<About />} />
         <Route path="/recommended" element={<Recommended />} />
         <Route path="/blog" element={<Blog />} />
       </Routes>

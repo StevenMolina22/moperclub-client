@@ -7,18 +7,20 @@ import PersonalMenu from "./PersonalMenu";
 import Articles from "./Articles";
 import Footer from "../../components/Footer";
 import Inspiration from "./Inspiration";
+import Places from "./Places";
 // import PopUpForm from "./components/Atoms/SigninForm";
 
 // main app
 function Home() {
   return (
-    <div>
+    <div className="flex flex-col gap-8">
       {/* <PopUpForm /> */}
       <Hero />
       <Featured />
       <Events />
       <Inspiration />
       <PersonalMenu />
+      <Places />
       <Articles />
       <Footer />
     </div>

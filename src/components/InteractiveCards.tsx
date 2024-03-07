@@ -16,10 +16,11 @@ interface cardContent {
 
 // interactive cards props type declaration
 interface Props {
+  title: string;
   cardsContent: cardContent[];
 }
 
-export default function InteractiveCards({ cardsContent }: Props) {
+export default function InteractiveCards({ title, cardsContent }: Props) {
   // images declaration
   // window width state declaration
   let [winWidth, setWinWidth] = useState(window.innerWidth);
@@ -38,10 +39,10 @@ export default function InteractiveCards({ cardsContent }: Props) {
   // --- returned card component
   return (
     // wrapper
-    <div className="mt-12 bg-slate-900 py-4">
+    <div className="mt-6 bg-slate-900 py-4">
       {/* title text */}
       <h2 className="text-center text-4xl font-extrabold leading-none tracking-tight text-slate-200 md:text-5xl lg:text-6xl ">
-        Eventos para ti
+        {title}
       </h2>
       {/* shows gallery if large device, carousel if small device */}
       {winWidth >= 768 ? (
