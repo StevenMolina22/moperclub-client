@@ -4,6 +4,7 @@ import EventCard from "../../components/Atoms/EventCard";
 import { getAllItems } from "../../api/featured.api";
 import { useState, useEffect } from "react";
 import SideBar from "../../components/SideBar";
+import UnderConstructionPage from "../../components/Construction";
 
 export default function Recommended() {
   // item is a data array, setItems is a func to set the data
@@ -58,7 +59,7 @@ export default function Recommended() {
           <EventCard event={item} />
         ))}
       </div>
-      <div style={{ height: "32px", width: "100%" }}></div>
+      <UnderConstructionPage />
       <Footer />
     </>
   );
