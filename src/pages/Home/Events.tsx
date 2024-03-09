@@ -15,7 +15,7 @@ type ItemType = {
 export default function Events() {
   // servers definition
   const serverHosted: string =
-    "https://moperclub-server-v2.vercel.app/events/api/events/";
+    "https://moperclub-server.vercel.app/events/api/events/";
   // const serverLocal: string = "https://localhost:8000/events/api/events/"
   // items of api data states definition
   const [items, setItems] = useState<ItemType[]>([]); // [] to make empty array, not null using tsx

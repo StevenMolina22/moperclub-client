@@ -9,7 +9,7 @@ type ArticlesType = {
 }
 
 export default function Articles() {
-  const serverHosted: string = "https://moperclub-server-v2.vercel.app/blog/api/posts/";
+  const serverHosted: string = "https://moperclub-server.vercel.app/blog/api/posts/";
   // const serverLocal: string = "https://localhost:8000/blog/api/posts/"
   // --- api data 
   const [items, setItems] = useState<ArticlesType[]>([])

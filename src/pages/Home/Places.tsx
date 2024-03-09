@@ -12,7 +12,7 @@ type ItemType = {
 };
 
 export default function Places() {
-  const serverHosted: string = "https://moperclub-server-v2.vercel.app/places/api/places/";
+  const serverHosted: string = "https://moperclub-server.vercel.app/places/api/places/";
   // const serverLocal: string = "https://localhost:8000"
   // items of api data states definition
   const [items, setItems] = useState<ItemType[]>([]); // [] to make empty array, not null using tsx

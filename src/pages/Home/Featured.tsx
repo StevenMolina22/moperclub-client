@@ -13,9 +13,9 @@ interface ItemType {
 
 const Featured: React.FC = () => {
   const serversHosted: string[] = [
-    "https://moperclub-server-v2.vercel.app/establishments/api/establishments/",
-    "https://moperclub-server-v2.vercel.app/events/api/events/",
-    "https://moperclub-server-v2.vercel.app/places/api/places/",
+    "https://moperclub-server.vercel.app/establishments/api/establishments/",
+    "https://moperclub-server.vercel.app/events/api/events/",
+    "https://moperclub-server.vercel.app/places/api/places/",
   ];
 
   // State for storing items
