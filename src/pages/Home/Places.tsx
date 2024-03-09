@@ -23,6 +23,7 @@ export default function Places() {
     async function loadItems() {
       const res = await getAllItems(serverHosted);
       setItems(res.data); // to save the response data
+      console.log("places data")
       console.log(res); // for dev purpose
     }
     loadItems();

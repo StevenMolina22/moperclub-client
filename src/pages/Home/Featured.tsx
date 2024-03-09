@@ -2,30 +2,52 @@ import Slider from "../../components/Slider";
 import { getAllItems } from "../../api/getItems.api";
 import { useState, useEffect } from "react";
 
-// --Type definition for the api data (to be used in the item state definition)
-type ItemType = {
+// Type definition for the API data
+interface ItemType {
   id: number;
   name: string;
   description: string;
   address: string;
   image: string;
-};
+}
 
-export default function Featured() {
-  const serverHosted: string = "https://moperclub-server-v2.vercel.app/api/featured/";
-  // const serverLocal: string = "http://localhost:8000/api/featured"
-  // --- api section
+const Featured: React.FC = () => {
+  const serversHosted: string[] = [
+    "https://moperclub-server-v2.vercel.app/establishments/api/establishments/",
+    "https://moperclub-server-v2.vercel.app/events/api/events/",
+    "https://moperclub-server-v2.vercel.app/places/api/places/",
+  ];
+
+  // State for storing items
   const [itemsAlt, setItemsAlt] = useState<ItemType[]>([]);
 
   useEffect(() => {
     async function loadItemsAlt() {
-      const res = await getAllItems(serverHosted);
-      setItemsAlt(res.data.featured_instances);
-      console.log(res);
+      try {
+        const responses = await Promise.all(
+          serversHosted.map((server) => getAllItems(server))
+        );
+
+        // Merge all the data from responses into a single array
+        const mergedData: ItemType[] = responses
+          .flatMap((response) => response.data)
+          .filter((item) => item.is_featured);
+
+        // Set the state with the merged and filtered data
+        setItemsAlt(mergedData);
+        console.log("featured data:");
+        console.log(mergedData);
+      } catch (error) {
+        console.error("Error loading items:", error);
+        // Handle error
+      }
     }
+
     loadItemsAlt();
   }, []);
 
-  // returned featured slider
+  // Render the featured slider with the items
   return <Slider items={itemsAlt} />;
-}
+};
+
+export default Featured;
