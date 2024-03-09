@@ -12,8 +12,8 @@ type ItemType = {
 };
 
 export default function Featured() {
-  const serverHosted: string = "https://moperclub-server-v2.vercel.app/api/featured";
-  // const serverLocal: string = "https://localhost:8000.api/featured"
+  const serverHosted: string = "https://moperclub-server-v2.vercel.app/api/featured/";
+  // const serverLocal: string = "https://localhost:8000/api/featured"
   // --- api section
   const [itemsAlt, setItemsAlt] = useState<ItemType[]>([]);
 
