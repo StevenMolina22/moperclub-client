@@ -1,7 +1,7 @@
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import EventCard from "../../components/Atoms/EventCard";
-import { getAllItems } from "../../api/featured.api";
+import { getAllItems } from "../../api/getItems.api";
 import { useState, useEffect } from "react";
 import SideBar from "../../components/SideBar";
 import UnderConstructionPage from "../../components/Construction";
@@ -13,7 +13,7 @@ export default function Recommended() {
   useEffect(() => {
     // async function for it to run in the background
     async function loadItems() {
-      const res = await getAllItems();
+      const res = await getAllItems("/events/api/events/");
       setItems(res.data); // to save the response data
       console.log(res); // for dev purpose
     }
