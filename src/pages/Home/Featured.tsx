@@ -12,10 +12,10 @@ interface ItemType {
 }
 
 const Featured: React.FC = () => {
-  const serversHosted: string[] = [
-    "https://moperclub-server.vercel.app/establishments/api/establishments/",
-    "https://moperclub-server.vercel.app/events/api/events/",
-    "https://moperclub-server.vercel.app/places/api/places/",
+  const endpoints: string[] = [
+    "/establishments/api/establishments/",
+    "/events/api/events/",
+    "/places/api/places/",
   ];
 
   // State for storing items
@@ -25,9 +25,9 @@ const Featured: React.FC = () => {
     async function loadItemsAlt() {
       try {
         const responses = await Promise.all(
-          serversHosted.map((server) => getAllItems(server))
+          endpoints.map((server) => getAllItems(server))
         );
-
+        
         // Merge all the data from responses into a single array
         const mergedData: ItemType[] = responses
           .flatMap((response) => response.data)

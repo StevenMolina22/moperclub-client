@@ -12,7 +12,7 @@ type ItemType = {
 };
 
 export default function Places() {
-  const serverHosted: string = "https://moperclub-server.vercel.app/places/api/places/";
+  const endpoint: string = "/places/api/places/";
   // const serverLocal: string = "https://localhost:8000"
   // items of api data states definition
   const [items, setItems] = useState<ItemType[]>([]); // [] to make empty array, not null using tsx
@@ -21,9 +21,9 @@ export default function Places() {
   useEffect(() => {
     // async function for it to run in the background
     async function loadItems() {
-      const res = await getAllItems(serverHosted);
+      const res = await getAllItems(endpoint);
       setItems(res.data); // to save the response data
-      console.log("places data")
+      console.log("places data");
       console.log(res); // for dev purpose
     }
     loadItems();
