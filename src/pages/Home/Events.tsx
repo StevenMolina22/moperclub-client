@@ -15,10 +15,6 @@ type ItemType = {
 export default function Events() {
   // use vite estructure to get the server url
   const endpoint = "/events/api/events/";
-  // servers definition
-  // const serverHosted: string =
-  //   "https://moperclub-server.vercel.app/events/api/events/";
-  // const serverLocal: string = "https://localhost:8000/events/api/events/"
   // items of api data states definition
   const [items, setItems] = useState<ItemType[]>([]); // [] to make empty array, not null using tsx
 
@@ -28,8 +24,6 @@ export default function Events() {
     async function loadItems() {
       const res = await getAllItems(endpoint);
       setItems(res.data); // to save the response data
-      console.log("events data:");
-      console.log(res); // for dev purpose
     }
     loadItems();
   }, []);

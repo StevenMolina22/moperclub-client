@@ -19,6 +19,7 @@ interface Props {
   subtitle: string;
   cards: IconCard[];
 }
+
 export default function IconMenu({ title, subtitle, cards }: Props) {
   return (
     <div>

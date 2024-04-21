@@ -34,7 +34,7 @@ const SinginForm = ({ openPopUp, closePopUp }: SignupFormProps) => {
                 Tu email
               </label>
               <input
-                type="email"
+                type="email" 
                 name="email"
                 id="email"
                 className="bg-red-500 border border-red-500 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  focus:ring-red-500 focus:border-red-500"

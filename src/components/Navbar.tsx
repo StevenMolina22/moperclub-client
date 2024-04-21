@@ -20,6 +20,7 @@ export default function Navbar() {
       navbarMenu.classList.toggle("hidden");
     }
   };
+  
   return (
     <div>
       {/* --- desktop navbar */}
