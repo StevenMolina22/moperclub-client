@@ -1,10 +1,10 @@
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import EventCard from "../../components/Atoms/EventCard";
+import Navbar from "../../components/Layout/Navbar";
+import Footer from "../../components/Layout/Footer";
+import EventCard from "../../components/Common/Cards/EventCard";
 import { getAllItems } from "../../api/getItems.api";
 import { useState, useEffect } from "react";
-import SideBar from "../../components/SideBar";
-import UnderConstructionPage from "../../components/Construction";
+import SideBar from "../../components/Layout/SideBar";
+import UnderConstructionPage from "../../components/Common/Construction";
 
 export default function Recommended() {
   // item is a data array, setItems is a func to set the data

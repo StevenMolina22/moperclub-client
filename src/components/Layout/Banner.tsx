@@ -1,5 +1,5 @@
 // styles
-import "../scss/banner.scss";
+import "../../scss/banner.scss";
 import Navbar from "./Navbar";
 
 // banner components types definition
@@ -9,7 +9,7 @@ interface Props {
   subtitleText: string;
 }
 
-export default function Banner( {bgImage, titleText, subtitleText}:Props ) {
+export default function Banner({ bgImage, titleText, subtitleText }: Props) {
   // background image
   // const bgImage: string =
   const bgImageStyle = {

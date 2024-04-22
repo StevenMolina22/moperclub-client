@@ -1,9 +1,9 @@
 // components
-import SigninButton from "./Atoms/SigninButton";
-import SignupButton from "./Atoms/SignupButton";
+import SigninButton from "../Common/Buttons/SigninButton";
+import SignupButton from "../Common/Buttons/SignupButton";
 // media: icons, imgs etc
-import logo from "./../assets/img/logotipo.png";
-import { SearchBar } from "./Atoms/SearchBar";
+import logo from "../../assets/img/logotipo.png";
+import { SearchBar } from "../Utilities/SearchBar";
 import { FaEllipsisVertical } from "react-icons/fa6";
 import { MdClose } from "react-icons/md";
 import { Bars3Icon } from "@heroicons/react/24/outline";
@@ -20,7 +20,7 @@ export default function Navbar() {
       navbarMenu.classList.toggle("hidden");
     }
   };
-  
+
   return (
     <div>
       {/* --- desktop navbar */}

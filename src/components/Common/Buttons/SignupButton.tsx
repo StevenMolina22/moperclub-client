@@ -1,7 +1,7 @@
 import { useState } from "react";
-import SigninForm from "./SigninForm";
+import SignupForm from "../../Modals/SignupForm";
 
-const SigninButton = () => {
+const SignupButton = () => {
   const [openPopup, setOpenPopup] = useState(false);
 
   const HandleRemovePopUp = () => setOpenPopup(false);
@@ -11,15 +11,15 @@ const SigninButton = () => {
       <div>
         <button
           onClick={() => setOpenPopup(true)}
-          className="lg:inline-block lg:ml-auto py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
+          className="rounded-xl bg-red-500 px-6 py-2 text-sm font-bold text-white transition duration-200 hover:bg-red-600 lg:inline-block"
         >
-          Sign In
+          Sign Up
         </button>
       </div>
       {/* openpopup is boolean and handle remove popup is a function */}
-      <SigninForm openPopUp={openPopup} closePopUp={HandleRemovePopUp} />
+      <SignupForm openPopUp={openPopup} closePopUp={HandleRemovePopUp} />
     </div>
   );
 };
 
-export default SigninButton;
+export default SignupButton;

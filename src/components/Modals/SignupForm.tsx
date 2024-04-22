@@ -1,17 +1,17 @@
-// type declaration
+// typescript types declaration:
 interface SignupFormProps {
   openPopUp: boolean;
   closePopUp: () => void;
 }
 
-const SinginForm = ({ openPopUp, closePopUp }: SignupFormProps) => {
+const SignupForm: React.FC<SignupFormProps> = ({ openPopUp, closePopUp }) => {
   const handlelosePopUp = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
     if (target.id === "ModelContainer") {
       closePopUp();
     }
   };
-
+   
   if (openPopUp !== true) return null;
 
   return (
@@ -23,7 +23,7 @@ const SinginForm = ({ openPopUp, closePopUp }: SignupFormProps) => {
       <div className=" w-full bg-white rounded-3xl shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
         <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-            Inicia sesion en tu cuenta
+            Crea tu cuenta
           </h1>
           <form className="space-y-4 md:space-y-6" action="#">
             <div>
@@ -34,11 +34,11 @@ const SinginForm = ({ openPopUp, closePopUp }: SignupFormProps) => {
                 Tu email
               </label>
               <input
-                type="email" 
+                type="email"
                 name="email"
                 id="email"
-                className="bg-red-500 border border-red-500 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400  focus:ring-red-500 focus:border-red-500"
-                placeholder="name@gmail.com"
+                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-blue-500 focus:border-blue-500"
+                placeholder="name@company.com"
                 // required=""
               />
             </div>
@@ -47,7 +47,7 @@ const SinginForm = ({ openPopUp, closePopUp }: SignupFormProps) => {
                 htmlFor="password"
                 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
-                Tu contraseña
+                Contraseña
               </label>
               <input
                 type="password"
@@ -87,17 +87,17 @@ const SinginForm = ({ openPopUp, closePopUp }: SignupFormProps) => {
             </div>
             <button
               type="submit"
-              className="w-full text-gray-100 bg-red-600 hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              className="w-full text-gray-200 bg-red-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
             >
-              Inicia sesion
+              Registrate
             </button>
             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-              No tienes una cuenta todavia?{" "}
+              Ya tienes una cuenta?{" "}
               <a
                 href="#"
-                className="font-medium text-red-500 hover:underline dark:text-red-500"
+                className="font-medium text-primary-600 hover:underline dark:text-red-500"
               >
-                Registrate
+                Inicia sesion
               </a>
             </p>
           </form>
@@ -107,4 +107,4 @@ const SinginForm = ({ openPopUp, closePopUp }: SignupFormProps) => {
   );
 };
 
-export default SinginForm;
+export default SignupForm;

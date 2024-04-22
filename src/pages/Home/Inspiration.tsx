@@ -1,4 +1,4 @@
-import InfoPanel from "../../components/InfoPanel";
+import InfoPanel from "../../components/Layout/InfoPanel";
 import {
   CloudArrowUpIcon,
   LockClosedIcon,

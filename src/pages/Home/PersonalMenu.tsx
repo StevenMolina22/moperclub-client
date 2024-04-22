@@ -1,4 +1,4 @@
-import IconMenu from "../../components/IconMenu"
+import IconMenu from "../../components/Features/IconMenu"
 
 export default function PersonalMenu() {
   const iconCardsContent = [

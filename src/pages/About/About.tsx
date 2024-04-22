@@ -1,6 +1,6 @@
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import UnderConstructionPage from "../../components/Construction";
+import Navbar from "../../components/Layout/Navbar";
+import Footer from "../../components/Layout/Footer";
+import UnderConstructionPage from "../../components/Common/Construction";
 
 export default function About() {
   return (

@@ -1,4 +1,4 @@
-import Slider from "../../components/Slider";
+import Slider from "../../components/Features/Slider";
 import { getAllItems } from "../../api/getItems.api";
 import { useState, useEffect } from "react";
 
@@ -25,9 +25,9 @@ const Featured: React.FC = () => {
     async function loadItemsAlt() {
       try {
         const responses = await Promise.all(
-          endpoints.map((server) => getAllItems(server))
+          endpoints.map((server) => getAllItems(server)),
         );
-        
+
         // Merge all the data from responses into a single array
         const mergedData: ItemType[] = responses
           .flatMap((response) => response.data)

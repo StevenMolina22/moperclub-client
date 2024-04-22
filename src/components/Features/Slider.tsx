@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"; // react functions
 // components
-import MoreButton from "./Atoms/InfoDropdown"; // dropdown button more info
+import MoreButton from "../Utilities/InfoDropdown"; // dropdown button more info
 import { Swiper, SwiperSlide } from "swiper/react"; // slider components
 import "swiper/css"; // style for sliders
 // media: icons
@@ -20,7 +20,7 @@ interface Props {
 }
 
 // --- main component
-const MyComponent = ( {items}: Props) => {
+const MyComponent = ({ items }: Props) => {
   // window width state definitions
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 

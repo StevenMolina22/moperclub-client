@@ -1,4 +1,4 @@
-import "../scss/ImagesIcons.scss";
+import "../../scss/ImagesIcons.scss";
 
 // article item type definition
 type ArticleItem = {

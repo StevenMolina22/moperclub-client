@@ -1,4 +1,4 @@
-import ImagesIcons from "../../components/ImagesIcons";
+import ImagesIcons from "../../components/Layout/ImagesIcons";
 import { getAllItems } from "../../api/getItems.api";
 import { useState, useEffect } from "react";
 

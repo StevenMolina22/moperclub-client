@@ -1,4 +1,4 @@
-import "../scss/gallery.scss";
+import "../../scss/gallery.scss";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 export default function Gallery() {

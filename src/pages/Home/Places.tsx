@@ -1,5 +1,5 @@
 import { getAllItems } from "../../api/getItems.api";
-import InteractiveCards from "../../components/InteractiveCards";
+import InteractiveCards from "../../components/Features/InteractiveCards";
 import { useState, useEffect } from "react";
 
 // api date type defintion
