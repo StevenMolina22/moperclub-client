@@ -1,10 +1,8 @@
 import InteractiveCard from "../Common/Cards/InteractiveCard";
 import { useEffect, useState } from "react";
-// --- Import Swiper React components
+// Swiper 
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css/pagination";
-// import required modules
 import { Pagination } from "swiper/modules";
 
 // interactive card item type declaration
@@ -15,13 +13,9 @@ interface cardContent {
 }
 
 // interactive cards props type declaration
-interface Props {
-  title: string;
-  cardsContent: cardContent[];
-}
 
-export default function InteractiveCards({ title, cardsContent }: Props) {
-  // images declaration
+export const VerticalCardsGallery = ({ cardsContent }: { cardsContent: cardContent[] }) => {
+// images declaration
   // window width state declaration
   let [winWidth, setWinWidth] = useState(window.innerWidth);
 
@@ -39,13 +33,11 @@ export default function InteractiveCards({ title, cardsContent }: Props) {
   // --- returned card component
   return (
     // wrapper
-    <div className="mt-6 bg-slate-900 py-4">
+    <>
       {/* title text */}
-      <h2 className="text-center text-4xl font-extrabold leading-none tracking-tight text-slate-200 md:text-5xl lg:text-6xl ">
-        {title}
-      </h2>
-      {/* shows gallery if large device, carousel if small device */}
+      {/* Show gallery/ carousel depending on screen*/}
       {winWidth >= 768 ? (
+        // show gallery for large screen
         <div className="flex flex-wrap justify-center gap-2 p-8">
           {cardsContent.map((cardContent, index) => (
             <InteractiveCard
@@ -57,7 +49,7 @@ export default function InteractiveCards({ title, cardsContent }: Props) {
           ))}
         </div>
       ) : (
-        // carousel for smaller devices
+        // Show carousel for small screen
         <Swiper
           slidesPerView={"auto"}
           spaceBetween={30}
@@ -81,6 +73,6 @@ export default function InteractiveCards({ title, cardsContent }: Props) {
           ))}
         </Swiper>
       )}
-    </div>
+    </>
   );
 }

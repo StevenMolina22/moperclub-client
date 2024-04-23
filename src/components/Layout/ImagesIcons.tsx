@@ -21,9 +21,9 @@ export default function ImagesIcons({ articles }: Props) {
         className="extra-videos flex flex-col items-center justify-items-center"
         id="extra-videos"
       >
-        {/* articles cards */}
+        {/* Article Cards Wrapper */}
         <div className="extra-videos__items mt-4 flex flex-wrap justify-center gap-5">
-          {/* article card */}
+          {/* Article Card */}
           {articles.map((article, index) => (
             <article
               key={index}

@@ -5,13 +5,15 @@ interface InteractiveCardProps {
   title: string;
   body: string;
 }
-
+/**
+ * 
+ * @returns - A rendered card with the info
+ */
 export default function InteractiveCard({
   image,
   title,
   body,
 }: InteractiveCardProps) {
-  // background
   return (
     <div
       className="interactive-card group h-[560px] w-[300px] rounded-xl bg-cover bg-center group-hover:shadow-red-500 lg:h-[600px] lg:w-[320px] "

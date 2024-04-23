@@ -1,5 +1,5 @@
-import { getAllItems } from "../../api/getItems.api";
-import InteractiveCards from "../../components/Features/InteractiveCards";
+import { getAllItems } from "../../api/getReq.api";
+import ContentDarkWrapper from "../../components/Features/ContentDarkWrapper";
 import { useState, useEffect } from "react";
 
 // api date type defintion
@@ -30,7 +30,7 @@ export default function Places() {
   }, []);
   const displayedItems = items.slice(0, 4);
   return (
-    <InteractiveCards
+    <ContentDarkWrapper
       title="Lugares para visitar"
       cardsContent={displayedItems}
     />

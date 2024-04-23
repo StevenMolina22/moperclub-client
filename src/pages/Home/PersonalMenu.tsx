@@ -1,4 +1,4 @@
-import IconMenu from "../../components/Features/IconMenu"
+import IconMenu from "../../components/Features/IconMenu";
 
 export default function PersonalMenu() {
   const iconCardsContent = [
@@ -20,10 +20,25 @@ export default function PersonalMenu() {
   ];
 
   return (
-    <IconMenu
+    <>
+      {/* Section Title Text */}
+      <div className="mb-6 text-center">
+        <h2 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
+          Disfruta de verdad con{" "}
+          <span className="text-orange-600">el #1 de Argentina</span> BS.
+        </h2>
+        <p className="mx-auto w-[70%] text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet quam
+          voluptatem itaque aliquam qui ducimus molestiae reiciendis perferendis
+          optio autem.
+        </p>
+      </div>
+      
+      <IconMenu
         title="Tu Menu Personal"
         subtitle="Hecho Para Ti"
         cards={iconCardsContent}
       />
-  )
+    </>
+  );
 }

@@ -1,4 +1,4 @@
-import InfoPanel from "../../components/Layout/InfoPanel";
+import ShowcasePanel from "../../components/Layout/ShowcasePanel";
 import {
   CloudArrowUpIcon,
   LockClosedIcon,
@@ -14,27 +14,32 @@ export default function Inspiration() {
     {
       title: "Todo de moper para ti",
       body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione",
-      icon: <CloudArrowUpIcon className="absolute left-1 top-1 h-5 w-5 text-red-600" />,
+      icon: (
+        <CloudArrowUpIcon className="absolute left-1 top-1 h-5 w-5 text-red-600" />
+      ),
     },
     {
       title: "Donde la aventura encuentra el bienestar",
       body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione",
-      icon: <LockClosedIcon className="absolute left-1 top-1 h-5 w-5 text-orange-600"/>,
+      icon: (
+        <LockClosedIcon className="absolute left-1 top-1 h-5 w-5 text-orange-600" />
+      ),
     },
     {
       title: "Solo hazlo",
       body: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione",
-      icon: <ServerIcon className="absolute left-1 top-1 h-5 w-5 text-red-600" />,
-      
+      icon: (
+        <ServerIcon className="absolute left-1 top-1 h-5 w-5 text-red-600" />
+      ),
     },
   ];
   return (
-    <InfoPanel
+    <ShowcasePanel
       caption="Sigue tus metas"
       title="Encuentra tu verdadero yo"
       body={body}
       image={image}
-      messages = {messages}
+      messages={messages}
     />
   );
 }

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import SignupForm from "../../Modals/SignupForm";
+import SignupForm from "../../Modals/SignupFormModal";
 
 const SignupButton = () => {
-  const [openPopup, setOpenPopup] = useState(false);
+  const [isPopupVisible, setOpenPopup] = useState(false);
 
-  const HandleRemovePopUp = () => setOpenPopup(false);
+  const closePopup = () => setOpenPopup(false);
 
   return (
     <div className="lg:inline-block">
@@ -17,7 +17,10 @@ const SignupButton = () => {
         </button>
       </div>
       {/* openpopup is boolean and handle remove popup is a function */}
-      <SignupForm openPopUp={openPopup} closePopUp={HandleRemovePopUp} />
+      <SignupForm
+        isPopupOpened={isPopupVisible}
+        closePopUp={closePopup}
+      />
     </div>
   );
 };

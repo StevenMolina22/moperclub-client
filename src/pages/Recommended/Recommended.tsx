@@ -1,7 +1,7 @@
 import Navbar from "../../components/Layout/Navbar";
 import Footer from "../../components/Layout/Footer";
 import EventCard from "../../components/Common/Cards/EventCard";
-import { getAllItems } from "../../api/getItems.api";
+import { getAllItems } from "../../api/getReq.api";
 import { useState, useEffect } from "react";
 import SideBar from "../../components/Layout/SideBar";
 import UnderConstructionPage from "../../components/Common/Construction";

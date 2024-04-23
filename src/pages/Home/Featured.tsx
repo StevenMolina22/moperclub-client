@@ -1,5 +1,5 @@
 import Slider from "../../components/Features/Slider";
-import { getAllItems } from "../../api/getItems.api";
+import { getAllItems } from "../../api/getReq.api";
 import { useState, useEffect } from "react";
 
 // Type definition for the API data

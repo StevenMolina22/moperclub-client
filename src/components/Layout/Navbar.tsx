@@ -23,11 +23,13 @@ export default function Navbar() {
 
   return (
     <div>
-      {/* --- desktop navbar */}
+      {/* ----- Desktop Navbar ------*/}
       <nav className="bg-trasnparent relative flex items-center justify-between px-4 py-4">
+        {/* Logo */}
         <a className="text-3xl font-bold leading-none" href="/">
           <img style={{ height: "32px" }} src={logo} alt="" />
         </a>
+        {/* Hamburger menu */}
         <div className="lg:hidden">
           <button
             className="navbar-burger flex items-center p-3 text-blue-600"
@@ -36,6 +38,7 @@ export default function Navbar() {
             <Bars3Icon className="h-6 w-6" /> {/* hamburger menu icon */}
           </button>
         </div>
+        {/* Navigation links */}
         <ul className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 transform lg:mx-auto lg:flex lg:w-auto lg:items-center lg:space-x-6">
           <li>
             <a
@@ -48,6 +51,7 @@ export default function Navbar() {
           <li className="text-gray-300">
             <FaEllipsisVertical className=" text-sm" />
           </li>
+
           <li>
             <a
               className="text-sm text-gray-400 hover:text-gray-500"
@@ -59,6 +63,7 @@ export default function Navbar() {
           <li className="text-gray-300">
             <FaEllipsisVertical className=" text-sm" />
           </li>
+
           <li>
             <a
               className="text-sm text-gray-400 hover:text-gray-500"
@@ -70,6 +75,7 @@ export default function Navbar() {
           <li className="text-gray-300">
             <FaEllipsisVertical className=" text-sm" />
           </li>
+
           <li>
             <a
               className="text-sm text-gray-400 hover:text-gray-500"
@@ -81,6 +87,7 @@ export default function Navbar() {
           <li className="text-gray-300">
             <FaEllipsisVertical className=" text-sm" />
           </li>
+
           <li>
             <a
               className="text-sm text-gray-400 hover:text-gray-500"
@@ -91,7 +98,7 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* authentication buttons */}
+        {/* Search & Authentication */}
         <div className="hidden lg:inline-block ">
           <div className="flex gap-2">
             <SearchBar />
@@ -101,12 +108,12 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* --- responsive navbar container */}
+      {/* --- Responsive navbar container */}
       <div className="navbar-menu relative z-50 hidden">
         <div className="navbar-backdrop fixed inset-0 bg-gray-900 opacity-25"></div>
         {/* actual navbar element */}
         <nav className="fixed bottom-0 left-0 top-0 flex w-5/6 max-w-sm flex-col overflow-y-auto border-r bg-gray-800 px-6 py-6">
-          {/* visible items */}
+          {/* Visible items */}
           <div className="mb-8 flex items-center">
             <a className="mr-auto text-3xl font-bold leading-none" href="/">
               <img style={{ height: "24px" }} src={logo} alt="" />
@@ -115,7 +122,8 @@ export default function Navbar() {
               <MdClose className=" text-3xl text-slate-500" />
             </button>
           </div>
-          {/* hidden items */}
+
+          {/* Hidden items */}
           <div>
             <ul>
               <li className="mb-1">
@@ -160,7 +168,8 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          {/* also hidden (authentication buttons) */}
+
+          {/* Authentication buttons (hidden) */}
           <div className="mt-auto">
             <div className="flex flex-col gap-3 pt-6">
               <SigninButton />

@@ -10,22 +10,19 @@ interface Props {
 }
 
 export default function Banner({ bgImage, titleText, subtitleText }: Props) {
-  // background image
-  // const bgImage: string =
+  // Banner Hero background image
   const bgImageStyle = {
     backgroundImage: `url(${bgImage})`,
   };
-  // messages text
-  // const titleText: string = "MOPERCLUB";
-  // const subtitleText: string = "Experiencias Inolvidables";
   // returned component
   return (
     <>
-      {/* home page component*/}
+      {/* Home/Banner section wrapper*/}
       <section className="home-page" style={bgImageStyle}>
         <div className="banner__img-overlay"></div> {/* opacity img */}
-        <Navbar /> {/* navbar component */}
-        {/* banner elements */}
+        {/* Navbar component: (for it to be transparent and show bg image) */}
+        <Navbar /> 
+        {/* Baner centered elements/ Call to action */}
         <div className="fluid-container banner">
           <div className="banner__border"></div>
           <div className="text__container banner__text">

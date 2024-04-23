@@ -16,7 +16,7 @@ interface Props {
   messages: MessageItems[];
 }
 
-export default function InfoPanel({
+export default function ShowcasePanel({
   caption,
   title,
   body,
@@ -25,42 +25,40 @@ export default function InfoPanel({
 }: Props) {
   // --- returned section component
   return (
+    // Wrapper
     <div className="overflow-hidden bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
-              {/* caption text */}
+              {/* Main Text: Caption */}
               <p className="text-base font-semibold leading-7 text-red-600">
                 {caption}
               </p>
-              {/* title text */}
+              {/* Main Text: Title */}
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 {title}
               </h2>
-              {/* body text message */}
-              <p className="mt-6 text-lg leading-8 text-gray-600">
-                {body}
-              </p>
-              {/* items */}
+              {/* Main Text: Body */}
+              <p className="mt-6 text-lg leading-8 text-gray-600">{body}</p>
+
+              {/* Information Items Container*/}
               <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
-                {/* items */}
+                {/* Information Item */}
                 {messages.map((message, index) => (
                   <div className="relative pl-9" key={index}>
                     <dt className="inline font-semibold text-gray-900">
                       {message.icon}
                       {message.title}.
                     </dt>
-                    <dd className="inline">
-                      {message.body}
-                    </dd>
+                    <dd className="inline">{message.body}</dd>
                   </div>
                 ))}
-                
               </dl>
             </div>
           </div>
 
+          {/* Main image to showcase */}
           <img
             src={image}
             alt="Product screenshot"

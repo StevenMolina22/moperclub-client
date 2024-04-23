@@ -1,145 +1,151 @@
 // seccion
 @import "./modules/all";
 
-.personal-menu {
-  margin-bottom: 4rem;
-  // menu redes sociales inferior derecho
-  & .company-menu {
-    @include flexEnd;
-    $cubic: cubic-bezier(0.64, 0.01, 0.07, 1.65);
-    $transition: 0.6s $cubic;
-    $size: 40px;
-    position: fixed;
-    z-index: 10;
-    bottom: 10px;
-    right: 10px;
+.company-menu {
+  @include flexEnd;
+  $cubic: cubic-bezier(0.64, 0.01, 0.07, 1.65);
+  $transition: 0.6s $cubic;
+  $size: 40px;
+  position: fixed;
+  z-index: 10;
+  bottom: 10px;
+  right: 10px;
+  width: $size;
+  height: $size;
+  transition: all 0.2s ease;
+  // links
+  & .bg_links {
+    @include flexCenter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
     width: $size;
     height: $size;
-    transition: all 0.2s ease;
-    // links
-    & .bg_links {
-      @include flexCenter;
-      position: absolute;
-      width: $size;
-      height: $size;
-      border-radius: 100%;
-      background-color: rgba(#fff, 0.2);
-      border-radius: 100%;
-      backdrop-filter: blur(5px);
-    }
-    // link/logo principal
-    & .company-menu__logo {
-      width: $size;
-      height: $size;
-      z-index: 9;
-      background-image: url(https://rafaelalucas91.github.io/assets/codepen/logo_white.svg);
-      background-size: 50%;
-      background-repeat: no-repeat;
-      background-position: 10px 7px;
-      opacity: 0.9;
-      transition: all 1s 0.2s ease;
-      bottom: 0;
-      right: 0;
-    }
-    // links/logos secundarios
-    & .company-menu__social {
+    border-radius: 100%;
+    background-color: rgba(#fff, 0.2);
+    border-radius: 100%;
+    backdrop-filter: blur(5px);
+  }
+  // link/logo principal
+  & .company-menu__logo {
+    width: $size;
+    height: $size;
+    z-index: 9;
+    background-image: url(https://rafaelalucas91.github.io/assets/codepen/logo_white.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: 10px 7px;
+    opacity: 0.9;
+    transition: all 1s 0.2s ease;
+    bottom: 0;
+    right: 0;
+  }
+  // links/logos secundarios
+  & .company-menu__social {
+    opacity: 0;
+    right: 0;
+    bottom: 0;
+    // iconos logos secundarios
+    & .info-icon {
+      display: flex;
+      width: 100%;
+      height: 100%;
       opacity: 0;
-      right: 0;
-      bottom: 0;
-      // iconos logos secundarios
-      & .info-icon {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        background-size: 20px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-color: transparent;
-        border-radius: 100%;
-        transition: all 0.2s ease, background-color 0.4s ease;
-      }
-      // ajustes individuales por app
-      &.company-menu__app1 {
-        transition: all 0.8s ease;
+      color: white;
+      background-size: 20px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: transparent;
+      border-radius: 100%;
+      transition:
+        all 0.2s ease,
+        background-color 0.4s ease;
+    }
+    // ajustes individuales por app
+    &.company-menu__app1 {
+      transition: all 0.8s ease;
 
+      .info-icon {
+        background-image: url(https://rafaelalucas91.github.io/assets/codepen/link.svg);
+      }
+    }
+    &.company-menu__app2 {
+      transition: all 0.3s ease;
+      .info-icon {
+        background-image: url(https://rafaelalucas91.github.io/assets/codepen/dribbble.svg);
+      }
+    }
+    &.company-menu__app3 {
+      transition: all 0.8s ease;
+      .info-icon {
+        background-image: url(https://rafaelalucas91.github.io/assets/codepen/linkedin.svg);
+      }
+    }
+  }
+
+  // company/apps menu
+  &:hover {
+    width: 105px;
+    height: 105px;
+    transition: all $transition;
+    // logo principal
+    .company-menu__logo {
+      opacity: 1;
+      transition: all 0.6s ease;
+    }
+    // links apps
+    & .company-menu__social {
+      opacity: 1;
+
+      .info-icon {
+        opacity: 0.9;
+      }
+      // links apps hover
+      &:hover {
+        background-size: 28px;
         .info-icon {
-          background-image: url(https://rafaelalucas91.github.io/assets/codepen/link.svg);
+          background-size: 65%;
+          opacity: 1;
+        }
+      }
+      // links/apps individuales
+      &.company-menu__app1 {
+        right: 0;
+        bottom: calc(100% - 40px);
+        transition: all 0.3s 0s $cubic;
+        .info-icon {
+          &:hover {
+            background-color: #698fb7;
+          }
         }
       }
       &.company-menu__app2 {
-        transition: all 0.3s ease;
+        bottom: 45%;
+        right: 45%;
+        transition: all 0.3s 0.15s $cubic;
         .info-icon {
-          background-image: url(https://rafaelalucas91.github.io/assets/codepen/dribbble.svg);
+          &:hover {
+            background-color: #ea4c89;
+          }
         }
       }
       &.company-menu__app3 {
-        transition: all 0.8s ease;
+        bottom: 0;
+        right: calc(100% - 40px);
+        transition: all 0.3s 0.25s $cubic;
         .info-icon {
-          background-image: url(https://rafaelalucas91.github.io/assets/codepen/linkedin.svg);
-        }
-      }
-    }
-
-    // company/apps menu
-    &:hover {
-      width: 105px;
-      height: 105px;
-      transition: all $transition;
-      // logo principal
-      .company-menu__logo {
-        opacity: 1;
-        transition: all 0.6s ease;
-      }
-      // links apps
-      & .company-menu__social {
-        opacity: 1;
-
-        .info-icon {
-          opacity: 0.9;
-        }
-        // links apps hover
-        &:hover {
-          background-size: 28px;
-          .info-icon {
-            background-size: 65%;
-            opacity: 1;
-          }
-        }
-        // links/apps individuales
-        &.company-menu__app1 {
-          right: 0;
-          bottom: calc(100% - 40px);
-          transition: all 0.3s 0s $cubic;
-          .info-icon {
-            &:hover {
-              background-color: #698fb7;
-            }
-          }
-        }
-        &.company-menu__app2 {
-          bottom: 45%;
-          right: 45%;
-          transition: all 0.3s 0.15s $cubic;
-          .info-icon {
-            &:hover {
-              background-color: #ea4c89;
-            }
-          }
-        }
-        &.company-menu__app3 {
-          bottom: 0;
-          right: calc(100% - 40px);
-          transition: all 0.3s 0.25s $cubic;
-          .info-icon {
-            &:hover {
-              background-color: #0077b5;
-            }
+          &:hover {
+            background-color: #0077b5;
           }
         }
       }
     }
   }
+}
+.personal-menu {
+  margin-bottom: 4rem;
+  // menu redes sociales inferior derecho
 
   @media screen and (max-width: 767px) {
     & .wrapper {

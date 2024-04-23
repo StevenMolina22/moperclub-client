@@ -1,5 +1,4 @@
 // Sections of the app page
-import "../../scss/app.scss";
 import Hero from "./Hero";
 import Featured from "./Featured";
 import Events from "./Events";
@@ -8,7 +7,7 @@ import Articles from "./Articles";
 import Footer from "../../components/Layout/Footer";
 import Inspiration from "./Inspiration";
 import Places from "./Places";
-// import PopUpForm from "./components/Atoms/SigninForm";
+import { FloatingSocialLinks } from "../../components/Features/FloatingSocialLinks";
 
 // main app
 function Home() {
@@ -17,8 +16,8 @@ function Home() {
       {/* <PopUpForm /> */}
       <Hero />
       <Featured />
-      <Inspiration />
       <Events />
+      <Inspiration />
       {/* title text  */}
       <div className=" text-center">
         <h2 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
@@ -31,10 +30,10 @@ function Home() {
           optio autem.
         </p>
       </div>
-      {/* algo extra */}
       <Places />
       <Articles />
       <PersonalMenu />
+      <FloatingSocialLinks/> 
       <Footer />
     </div>
   );
