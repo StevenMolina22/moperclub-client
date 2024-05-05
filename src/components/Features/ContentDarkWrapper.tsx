@@ -1,19 +1,13 @@
-import { VerticalCardsGallery } from "./VerticalCardsGallery";
-// interactive card item type declaration
-interface cardContent {
-  name: string;
-  description: string;
-  image: string;
-}
+import React from "react";
 
 // interactive cards props type declaration
 interface Props {
-  title: string;
+  title?: string;
   subtitle?: string;
-  cardsContent: cardContent[];
+  displayedComponent: React.ReactNode;
 }
 
-export default function ContentDarkWrapper({ title, subtitle = "", cardsContent }: Props) {
+export default function ContentDarkWrapper({ title = "", subtitle = "", displayedComponent }: Props) {
   // --- returned card component
   return (
     // wrapper
@@ -25,7 +19,7 @@ export default function ContentDarkWrapper({ title, subtitle = "", cardsContent 
       <h3 className="text-center text-4xl font-extrabold leading-none tracking-tight text-slate-200 md:text-3xl lg:text-4xl ">
         {subtitle}
       </h3>
-      <VerticalCardsGallery cardsContent={cardsContent} />
+      {displayedComponent}
     </div>
   );
 }

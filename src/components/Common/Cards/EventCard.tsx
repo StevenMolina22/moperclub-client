@@ -1,7 +1,7 @@
 import { HomeIcon, PhoneIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
 
 // Type declaration: info for the card
-interface Event {
+interface EventItem {
   image: string;
   name: string;
   description: string;
@@ -11,10 +11,10 @@ interface Event {
 }
 /**
  * 
- * @param Event - Object with info to be displayed
+ * @param EventItem - Object with info to be displayed
  * @returns - A rendered card with the info
  */
-const EventCard: React.FC<{ event: Event }> = ({ event }) => {
+const EventCard = ( event: EventItem ) => {
   return (
     <div className="w-[24rem] overflow-hidden rounded-lg bg-white shadow-md lg:w-[36rem]">
       {/* Image: (100% w and h) */}

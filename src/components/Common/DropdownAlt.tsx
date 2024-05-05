@@ -3,9 +3,9 @@ interface DropDownAltInterface {
   id: string; // id expected to be string because its a selector and not a pk
 }
 
-export function DropdownAlt({ id }: DropDownAltInterface) {
+export function DropdownAlt( {id}: DropDownAltInterface ) {
   const dropdownAlt = () => {
-    let dropDownAlt = document.querySelector(`#${id}`);
+    const dropDownAlt = document.querySelector(`#${id}`);
     if (dropDownAlt instanceof HTMLInputElement) {
       dropDownAlt.classList.toggle("hidden");
     }

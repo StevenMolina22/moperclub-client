@@ -12,8 +12,8 @@ export default function Navbar() {
   // toggle function
   const toggleNavbar = () => {
     // -- elements gotten with selectors
-    const navbarButton = document.querySelector(".navbar-burger");
-    const navbarMenu = document.querySelector(".navbar-menu");
+    const navbarButton: Element | null = document.querySelector(".navbar-burger");
+    const navbarMenu: Element | null = document.querySelector(".navbar-menu");
     // - null checking after the selectors
     if (navbarButton && navbarMenu) {
       navbarButton.classList.toggle("hidden");

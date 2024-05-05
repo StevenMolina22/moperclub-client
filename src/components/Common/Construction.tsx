@@ -1,7 +1,6 @@
-import React from "react";
 import { GiThorHammer } from "react-icons/gi";
 
-const UnderConstructionPage: React.FC = () => {
+const UnderConstructionPage = () => {
   return (
     <div className="flex h-screen flex-col items-center">
       <div className="my-8 text-4xl font-bold">Under Construction</div>

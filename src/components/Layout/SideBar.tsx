@@ -1,13 +1,10 @@
 // Sidebar.tsx
-
-import React from "react";
-
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
+const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
   return (
     <div
       className={`fixed inset-0 overflow-hidden ${
