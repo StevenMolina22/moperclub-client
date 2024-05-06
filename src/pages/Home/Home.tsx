@@ -4,7 +4,7 @@ import Featured from "./Featured";
 import Events from "./Events";
 import PersonalMenu from "./PersonalMenu";
 import Articles from "./Articles";
-import Footer from "../../components/Layout/Footer";
+import Footer from "../../components/Layout/Footer/Footer";
 import Inspiration from "./Inspiration";
 import Places from "./Places";
 import { FloatingSocialLinks } from "../../components/Features/FloatingSocialLinks";
@@ -33,7 +33,7 @@ function Home() {
       <Places />
       <Articles />
       <PersonalMenu />
-      <FloatingSocialLinks/> 
+      <FloatingSocialLinks />
       <Footer />
     </div>
   );

@@ -1,4 +1,5 @@
 import Banner from "../../components/Layout/Banner";
+import Navbar from "../../components/Layout/Navbar/Navbar";
 
 export default function Hero() {
   const bgHeroImage: string =
@@ -8,6 +9,7 @@ export default function Hero() {
       bgImage={bgHeroImage}
       titleText="MOPERCLUB"
       subtitleText="Experiencias Inolvidables"
+      navbar={<Navbar />}
     />
   );
 }

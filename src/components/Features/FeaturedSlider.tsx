@@ -20,7 +20,7 @@ interface Props {
 }
 
 // --- main component
-const MyComponent = ({ items }: Props) => {
+const FeaturedSlider = ({ items }: Props) => {
   // window width state definitions
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -118,4 +118,4 @@ const MyComponent = ({ items }: Props) => {
   );
 };
 
-export default MyComponent;
+export default FeaturedSlider;

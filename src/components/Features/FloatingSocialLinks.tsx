@@ -1,4 +1,4 @@
-import "../../scss/IconMenu.scss";
+import "../../scss/IconCompanyMenu.scss";
 
 import {
   ArrowUpOnSquareStackIcon,

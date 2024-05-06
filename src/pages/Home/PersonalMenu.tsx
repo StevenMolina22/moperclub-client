@@ -1,4 +1,5 @@
-import IconMenu from "../../components/Features/IconMenu";
+import { IconCard } from "../../components/Common/Cards/IconCard";
+import ContentDarkWrapper from "../../components/Features/ContentDarkWrapper";
 
 export default function PersonalMenu() {
   const iconCardsContent = [
@@ -18,7 +19,6 @@ export default function PersonalMenu() {
       icon: "alternate_email",
     },
   ];
-
   return (
     <>
       {/* Section Title Text */}
@@ -33,11 +33,18 @@ export default function PersonalMenu() {
           optio autem.
         </p>
       </div>
-      
-      <IconMenu
+
+      <ContentDarkWrapper
         title="Tu Menu Personal"
         subtitle="Hecho Para Ti"
-        cards={iconCardsContent}
+        displayedComponent={
+          <div className="flex flex-col items-center justify-center py-6 md:flex-row">
+            {/* personal-menu__card */}
+            {iconCardsContent.map((card, index) => (
+              <IconCard key={index} {...card} />
+            ))}
+          </div>
+        }
       />
     </>
   );

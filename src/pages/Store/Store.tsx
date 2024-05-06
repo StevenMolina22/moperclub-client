@@ -1,6 +1,6 @@
-import Navbar from "../../components/Layout/Navbar";
-import Footer from "../../components/Layout/Footer";
-import UnderConstructionPage from "../../components/Common/Construction";
+import Navbar from "../../components/Layout/Navbar/Navbar";
+import Footer from "../../components/Layout/Footer/Footer";
+import UnderConstructionPage from "../../components/Common/ConstructionAnimation";
 
 export default function Store() {
   return (

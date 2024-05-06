@@ -1,10 +1,10 @@
-import Navbar from "../../components/Layout/Navbar";
-import Footer from "../../components/Layout/Footer";
+import Navbar from "../../components/Layout/Navbar/Navbar";
+import Footer from "../../components/Layout/Footer/Footer";
 import EventCard from "../../components/Common/Cards/EventCard";
 import { getAllItems } from "../../api/getReq.api";
 import { useState, useEffect } from "react";
 import SideBar from "../../components/Layout/SideBar";
-import UnderConstructionPage from "../../components/Common/Construction";
+import UnderConstructionPage from "../../components/Common/ConstructionAnimation";
 
 export default function Recommended() {
   // item is a data array, setItems is a func to set the data

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getAllItems } from '../api/getReq.api';
+import useApiData from './useApiData';
 
-// api date type definition
 type ItemType = {
   id: number;
   name: string;
@@ -19,16 +18,8 @@ type CardType = {
 };
 
 const useEvents = (endpoint: string) => {
-  const [items, setItems] = useState<ItemType[]>([]);
+  const { data: items, isLoading, error } = useApiData<ItemType>(endpoint);
   const [events, setEvents] = useState<CardType[]>([]);
-
-  useEffect(() => {
-    async function loadItems() {
-      const res = await getAllItems(endpoint);
-      setItems(res.data);
-    }
-    loadItems();
-  }, [endpoint]);
 
   useEffect(() => {
     const mappedEvents = items.slice(0, 4).map((item) => ({
@@ -41,7 +32,7 @@ const useEvents = (endpoint: string) => {
     setEvents(mappedEvents);
   }, [items]);
 
-  return { events };
+  return { events, isLoading, error };
 };
 
 export default useEvents;

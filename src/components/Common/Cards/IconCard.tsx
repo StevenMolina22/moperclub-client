@@ -1,4 +1,4 @@
-import "../../../scss/IconMenu.scss";
+import "../../../scss/IconPersonalMenu.scss";
 // import ImagesIcons from "../../Layout/ImagesIcons";
 
 // icon card type definition

@@ -1,4 +1,4 @@
-import Slider from "../../components/Features/Slider";
+import Slider from "../../components/Features/FeaturedSlider";
 import { getAllItems } from "../../api/getReq.api";
 import { useState, useEffect } from "react";
 

@@ -1,15 +1,15 @@
 // styles
 import "../../scss/banner.scss";
-import Navbar from "./Navbar";
 
 // banner components types definition
 interface Props {
   bgImage: string;
   titleText: string;
-  subtitleText: string;
+  subtitleText?: string;
+  navbar?: React.ReactNode
 }
 
-export default function Banner({ bgImage, titleText, subtitleText }: Props) {
+export default function Banner({ bgImage, titleText, subtitleText, navbar }: Props) {
   // Banner Hero background image
   const bgImageStyle = {
     backgroundImage: `url(${bgImage})`,
@@ -21,7 +21,7 @@ export default function Banner({ bgImage, titleText, subtitleText }: Props) {
       <section className="home-page" style={bgImageStyle}>
         <div className="banner__img-overlay"></div> {/* opacity img */}
         {/* Navbar component: (for it to be transparent and show bg image) */}
-        <Navbar /> 
+        {navbar} 
         {/* Baner centered elements/ Call to action */}
         <div className="fluid-container banner">
           <div className="banner__border"></div>
