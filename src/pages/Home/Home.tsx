@@ -33,8 +33,11 @@ function Home() {
       <Places />
       <Articles />
       <PersonalMenu />
-      <FloatingSocialLinks/> 
+      <h2 className="my-6 text-center text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl">
+        Ten mas informacion acerca de nosotros
+      </h2>
       <Footer />
+      <FloatingSocialLinks />
     </div>
   );
 }

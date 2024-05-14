@@ -1,66 +1,46 @@
-import { sendPostRequest } from "../../api/postReq.api.ts";
-import { useState } from "react";
+import React, { useState } from "react";
+import useSignInSubmit from "../../hooks/useSignInSubmit.ts";
+import handleModalClose from "../../utils/handleFormModalClose.ts";
 
-interface SignupFormProps {
+type SignupFormProps = {
   isPopupOpened: boolean;
   closePopUp: () => void;
-}
+};
 
-const SinginForm = ({ isPopupOpened, closePopUp }: SignupFormProps) => {
+type PasswordInputProps = {
+  showPassword: boolean;
+  password: string;
+  setPassword: React.Dispatch<React.SetStateAction<string>>;
+  handleTogglePasswordVisibility: () => void;
+};
+
+const SignInForm = ({ isPopupOpened, closePopUp }: SignupFormProps) => {
   // Manage state for form handling
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
-  // Handle password visibility
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
-  // Handle form submission
-  function signInHandler(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    sendPostRequest("/users/login/", {
-      username: username,
-      password: password,
-    }) // Manage the response promise
-      .then((data) => {
-        console.log(data);
-        if (data.token) {
-          alert("Login successful");
-          setUsername("");
-          setPassword("");
-          setShowPassword(false);
-          closePopUp();
-        } else {
-          alert("Login failed. Please try again.");
-          setPassword("");
-          setShowPassword(false);
-        }
-      })
-      .catch((error) => {
-        alert("An error occurred. Please try again later.");
-        console.error("Error:", error);
-      });
-  }
+  const handleSubmit = useSignInSubmit({ closePopUp });
 
   // Handle modal behavior (close pop up if clicked outside it)
-  const handlelosePopUp = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleOutsideClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLDivElement;
     if (target.id === "ModelContainer") {
-      setUsername("");
-      setPassword("");
-      setShowPassword(false);
-      closePopUp();
+      handleModalClose(closePopUp, setUsername, setPassword, setShowPassword);
     }
   };
+
   // Checking: if pop up is open (if not, not render anything)
   if (isPopupOpened !== true) return null;
 
   return (
     <div
       id="ModelContainer"
-      onClick={handlelosePopUp}
+      onClick={handleOutsideClick}
       className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-20 backdrop-blur-sm"
     >
       <div className=" w-full rounded-3xl bg-white shadow sm:max-w-md md:mt-0 xl:p-0 dark:border dark:border-gray-700 dark:bg-gray-800">
@@ -73,81 +53,24 @@ const SinginForm = ({ isPopupOpened, closePopUp }: SignupFormProps) => {
           <form
             className="space-y-4 md:space-y-6"
             action="#"
-            onSubmit={signInHandler}
+            onSubmit={(event: React.FormEvent<HTMLFormElement>) => {
+              event.preventDefault();
+              handleSubmit(username, password);
+            }}
           >
             {/* --- USERNAME */}
-            <div>
-              <label
-                htmlFor="username"
-                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Tu username
-              </label>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                className="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500 sm:text-sm dark:bg-gray-700  dark:text-white dark:placeholder-gray-400"
-                placeholder="name@gmail.com"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
+            <SignInFormUsernameInput {...{ username, setUsername }} />
 
-            {/*  --- PASSWORD */}
-            <div>
-              <label
-                htmlFor="password"
-                className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Tu contraseña
-              </label>
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                id="password"
-                placeholder={showPassword ? "password" : "••••••••"}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
-              />
-              {/* Toggle password visibility */}
-              <button
-                type="button"
-                onClick={handleTogglePasswordVisibility}
-                className="my-2 dark:text-white"
-              >
-                {showPassword ? "Hide" : "Show"} Password
-              </button>
-            </div>
+            <SignInFormPasswordInput
+              {...{
+                showPassword,
+                password,
+                setPassword,
+                handleTogglePasswordVisibility,
+              }}
+            />
 
-            {/* Remember Me & Forgot Password */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-start">
-                <div className="flex h-5 items-center">
-                  <input
-                    id="remember"
-                    aria-describedby="remember"
-                    type="checkbox"
-                    className="focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 h-4 w-4 rounded border border-gray-300 bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
-                  />
-                </div>
-                <div className="ml-3 text-sm">
-                  <label
-                    htmlFor="remember"
-                    className="text-gray-500 dark:text-gray-300"
-                  >
-                    Recuerdame
-                  </label>
-                </div>
-              </div>
-              <a
-                href="#"
-                className="dark:text-primary-500 text-sm font-medium text-red-500 hover:underline"
-              >
-                Olvidaste tu contraseña?
-              </a>
-            </div>
+            <SignInForgotPassword />
 
             {/* --- SUBMIT BUTTON */}
             <button
@@ -174,4 +97,100 @@ const SinginForm = ({ isPopupOpened, closePopUp }: SignupFormProps) => {
   );
 };
 
-export default SinginForm;
+function SignInFormPasswordInput({
+  showPassword,
+  password,
+  setPassword,
+  handleTogglePasswordVisibility,
+}: PasswordInputProps) {
+  return (
+    <div>
+      <label
+        htmlFor="password"
+        className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+      >
+        Tu contraseña
+      </label>
+      <input
+        type={showPassword ? "text" : "password"}
+        name="password"
+        id="password"
+        placeholder={showPassword ? "password" : "••••••••"}
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        className="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-blue-500 dark:focus:ring-blue-500"
+      />
+      {/* Toggle password visibility */}
+      <button
+        type="button"
+        onClick={handleTogglePasswordVisibility}
+        className="my-2 dark:text-white"
+      >
+        {showPassword ? "Hide" : "Show"} Password
+      </button>
+    </div>
+  );
+}
+
+function SignInFormUsernameInput({
+  username,
+  setUsername,
+}: {
+  username: string;
+  setUsername: React.Dispatch<React.SetStateAction<string>>;
+}) {
+  return (
+    <div>
+      <label
+        htmlFor="username"
+        className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+      >
+        Tu username
+      </label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        className="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-gray-900 focus:border-blue-500 focus:ring-blue-500 sm:text-sm dark:bg-gray-700  dark:text-white dark:placeholder-gray-400"
+        placeholder="name@gmail.com"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+    </div>
+  );
+}
+
+
+function SignInForgotPassword() {
+  return (
+    <div className="flex items-center justify-between">
+      <div className="flex items-start">
+        <div className="flex h-5 items-center">
+          <input
+            id="remember"
+            aria-describedby="remember"
+            type="checkbox"
+            className="focus:ring-3 focus:ring-primary-300 dark:focus:ring-primary-600 h-4 w-4 rounded border border-gray-300 bg-gray-50 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800"
+          />
+        </div>
+        <div className="ml-3 text-sm">
+          <label
+            htmlFor="remember"
+            className="text-gray-500 dark:text-gray-300"
+          >
+            Recuerdame
+          </label>
+        </div>
+      </div>
+      <a
+        href="#"
+        className="dark:text-primary-500 text-sm font-medium text-red-500 hover:underline"
+      >
+        Olvidaste tu contraseña?
+      </a>
+    </div>
+  );
+}
+
+export default SignInForm;
+

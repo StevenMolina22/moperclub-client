@@ -1,7 +1,7 @@
 import { useState } from "react";
-import SigninForm from "../../Modals/SigninFormModal";
+import SignInForm from "../../Modals/SigninFormModal";
 
-const SigninButton = () => {
+const SignInButton = () => {
   // Handle popup visibility and closing
   const [isPopupVisible, setIsPopupVisible] = useState(false);
   const closePopUp = () => setIsPopupVisible(false);
@@ -16,10 +16,10 @@ const SigninButton = () => {
           Sign In
         </button>
       </div>
-      {/* openpopup is boolean and handle remove popup is a function */}
-      <SigninForm isPopupOpened={isPopupVisible} closePopUp={closePopUp} />
+      {/* open popup is boolean and handle remove popup is a function */}
+      <SignInForm isPopupOpened={isPopupVisible} closePopUp={closePopUp} />
     </div>
   );
 };
 
-export default SigninButton;
+export default SignInButton;

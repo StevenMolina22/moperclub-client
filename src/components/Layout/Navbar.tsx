@@ -1,5 +1,5 @@
 // components
-import SigninButton from "../Common/Buttons/SigninButton";
+import SignInButton from "../Common/Buttons/SignInButton.tsx";
 import SignupButton from "../Common/Buttons/SignupButton";
 // media: icons, imgs etc
 import logo from "../../assets/img/logotipo.png";
@@ -102,7 +102,7 @@ export default function Navbar() {
         <div className="hidden lg:inline-block ">
           <div className="flex gap-2">
             <SearchBar />
-            <SigninButton />
+            <SignInButton />
             <SignupButton />
           </div>
         </div>
@@ -172,7 +172,7 @@ export default function Navbar() {
           {/* Authentication buttons (hidden) */}
           <div className="mt-auto">
             <div className="flex flex-col gap-3 pt-6">
-              <SigninButton />
+              <SignInButton />
               <SignupButton />
             </div>
             <p className="my-4 text-center text-xs text-gray-400">
