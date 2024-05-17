@@ -1,11 +1,12 @@
-interface Response<T> {
+// api/postReq.api.ts
+export interface Response<T> {
   data: T;
   status: number;
   statusText: string;
 }
 
 export async function sendPostRequest<T>(endpoint = "", data = {}): Promise<Response<T>> {
-  const baseURL = import.meta.env.VITE_BACKEND_URL; // uses vite env_vars (production or local)
+  const baseURL = import.meta.env.VITE_BACKEND_URL; // uses Vite env_vars (production or local)
 
   const response = await fetch(baseURL + endpoint, {
     method: "POST",
@@ -16,7 +17,7 @@ export async function sendPostRequest<T>(endpoint = "", data = {}): Promise<Resp
   const responseData: Response<T> = {
     data: await response.json(),
     status: response.status,
-    statusText: response.status.toString(),
+    statusText: response.statusText,
   };
 
   return responseData;

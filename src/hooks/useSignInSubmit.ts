@@ -1,18 +1,24 @@
 // useSignInSubmit.ts
-import { sendPostRequest } from "../api/postReq.api";
+import { sendPostRequest, Response } from "../api/postReq.api";
 
 type UseSignInSubmitProps = {
   closePopUp: () => void;
-}
+};
+
+type LoginResponse = {
+  token?: string;
+};
 
 const useSignInSubmit = ({ closePopUp }: UseSignInSubmitProps) => {
   const handleSubmit = async (username: string, password: string) => {
     try {
-      const data = await sendPostRequest("/users/login/", {
+      const response: Response<LoginResponse> = await sendPostRequest<LoginResponse>("/users/login/", {
         username,
         password,
       });
-
+      
+      const { data } = response;
+      
       if (data.token) {
         alert("Login successful");
         closePopUp();

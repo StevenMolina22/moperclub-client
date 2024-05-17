@@ -9,11 +9,7 @@ interface EventItem {
   phone_number: string;
   website: string;
 }
-/**
- * 
- * @param EventItem - Object with info to be displayed
- * @returns - A rendered card with the info
- */
+
 const EventCard = ( event: EventItem ) => {
   return (
     <div className="w-[24rem] overflow-hidden rounded-lg bg-white shadow-md lg:w-[36rem]">

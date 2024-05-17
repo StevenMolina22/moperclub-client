@@ -6,23 +6,28 @@ import { useState, useEffect } from "react";
 import SideBar from "../../components/Layout/SideBar";
 import UnderConstructionPage from "../../components/Common/Construction";
 
+interface EventItem {
+  image: string;
+  name: string;
+  description: string;
+  address: string;
+  phone_number: string;
+  website: string;
+}
+
 export default function Recommended() {
-  // item is a data array, setItems is a func to set the data
-  const [items, setItems] = useState([]); // [] to make empty array, not null
-  // --- backend info, useEffect to use as soon as the page starts
+  const [items, setItems] = useState<EventItem[]>([]); // Explicitly set the type to EventItem[]
+
   useEffect(() => {
-    // async function for it to run in the background
     async function loadItems() {
       const res = await getAllItems("/events/api/events/");
-      setItems(res.data); // to save the response data
-      console.log(res); // for dev purpose
+      setItems(res.data);
+      console.log(res);
     }
     loadItems();
   }, []);
 
-  // widht handler for responsiveness
-  let [winWidth, setWinWidth] = useState(window.innerWidth);
-  // updates width in state
+  const [winWidth, setWinWidth] = useState(window.innerWidth);
   useEffect(() => {
     const handleResize = () => {
       setWinWidth(window.innerWidth);
@@ -31,7 +36,6 @@ export default function Recommended() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // SideBar show/hide toggle states
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -56,7 +60,7 @@ export default function Recommended() {
       <SideBar isOpen={isSidebarOpen} onClose={toggleSidebar} />
       <div className="flex flex-wrap justify-center gap-6">
         {items.map((item) => (
-          <EventCard event={item} />
+          <EventCard key={item.name} {...item} /> // No more type error here
         ))}
       </div>
       <UnderConstructionPage />

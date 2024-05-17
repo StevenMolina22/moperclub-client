@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { sendPostRequest } from "../../api/postReq.api";
 
-// typescript types declaration:
+// TypeScript types declaration:
 interface SignupFormProps {
   isPopupOpened: boolean;
   closePopUp: () => void;
+}
+
+// Define the expected response type
+interface SignupResponse {
+  token?: string; // token is optional because it may not exist in the case of failure
 }
 
 const SignupForm: React.FC<SignupFormProps> = ({
@@ -26,12 +31,13 @@ const SignupForm: React.FC<SignupFormProps> = ({
   function signUpHandler(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     // Handle response, alert user of success or failure
-    sendPostRequest("/users/register/", {
+    sendPostRequest<SignupResponse>("/users/register/", {
       email: email,
       username: username,
       password: password,
     })
-      .then((data) => {
+      .then((response) => {
+        const data = response.data;
         console.log(data);
         if (data.token) {
           alert("Sign up successful");
@@ -53,7 +59,7 @@ const SignupForm: React.FC<SignupFormProps> = ({
   }
 
   // Handle modal behavior (close pop up if clicked outside it)
-  const handlelosePopUp = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleClosePopUp = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLDivElement;
     if (target.id === "ModelContainer") {
       setUsername("");
@@ -63,15 +69,16 @@ const SignupForm: React.FC<SignupFormProps> = ({
       closePopUp();
     }
   };
+  
   if (isPopupOpened !== true) return null;
 
   return (
     <div
       id="ModelContainer"
-      onClick={handlelosePopUp}
+      onClick={handleClosePopUp}
       className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-20 backdrop-blur-sm"
     >
-      <div className=" w-full rounded-3xl bg-white shadow sm:max-w-md md:mt-0 xl:p-0 dark:border dark:border-gray-700 dark:bg-gray-800">
+      <div className="w-full rounded-3xl bg-white shadow sm:max-w-md md:mt-0 xl:p-0 dark:border dark:border-gray-700 dark:bg-gray-800">
         <div className="space-y-4 p-6 sm:p-8 md:space-y-6">
           <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
             Crea tu cuenta
