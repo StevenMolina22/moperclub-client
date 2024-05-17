@@ -1,52 +1,25 @@
 import Slider from "../../components/Features/Slider";
-import { getAllItems } from "../../api/getReq.api";
+import useItemsFetch, { ItemType } from "../../hooks/useItemsFetch";
 import { useState, useEffect } from "react";
 
-// Type definition for the API data
-interface ItemType {
-  id: number;
-  name: string;
-  description: string;
-  address: string;
-  image: string;
-}
-
 const Featured: React.FC = () => {
-  const endpoints: string[] = [
-    "/establishments/api/establishments/",
-    "/events/api/events/",
-    "/places/api/places/",
-  ];
-
-  // State for storing items
   const [itemsAlt, setItemsAlt] = useState<ItemType[]>([]);
+  const fetchItems = useItemsFetch();
 
   useEffect(() => {
-    async function loadItemsAlt() {
+    const loadItemsAlt = async () => {
       try {
-        const responses = await Promise.all(
-          endpoints.map((server) => getAllItems(server)),
-        );
-
-        // Merge all the data from responses into a single array
-        const mergedData: ItemType[] = responses
-          .flatMap((response) => response.data)
-          .filter((item) => item.is_featured);
-
-        // Set the state with the merged and filtered data
-        setItemsAlt(mergedData);
-        console.log("featured data:");
-        console.log(mergedData);
+        const featuredItems = await fetchItems();
+        setItemsAlt(featuredItems);
       } catch (error) {
-        console.error("Error loading items:", error);
         // Handle error
+        console.error("Error loading featured items:", error);
       }
-    }
+    };
 
     loadItemsAlt();
-  }, []);
+  }, [fetchItems]);
 
-  // Render the featured slider with the items
   return <Slider items={itemsAlt} />;
 };
 

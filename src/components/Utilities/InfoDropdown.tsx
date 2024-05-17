@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 // type declaration for data info objects
 interface MoreButtonProps {
   id: number;
@@ -27,7 +28,7 @@ const MoreButton = ({ id, title, description, address }: MoreButtonProps) => {
         Ver mas
       </button>
       {/* shows dropdown if dropdown visibility is*/}
-      {showDropdown && ( 
+      {showDropdown && (
         // dropdown info data
         <ul
           style={{ backgroundColor: "#000000aa" }}

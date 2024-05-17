@@ -1,4 +1,3 @@
-import React from "react";
 import "../../../scss/cards/InteractiveCard.scss";
 
 type InteractiveCardProps = {
@@ -9,11 +8,7 @@ type InteractiveCardProps = {
   };
 };
 
-/**
- * 
- * @returns - A rendered card with the info
- */
-const InteractiveCard: React.FC<InteractiveCardProps> = ({ cardInfo }) => {
+const InteractiveCard = ({ cardInfo }: InteractiveCardProps) => {
   return (
     <div
       className="interactive-card group h-[560px] w-[300px] rounded-xl bg-cover bg-center group-hover:shadow-red-500 lg:h-[600px] lg:w-[320px] "
